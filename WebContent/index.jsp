@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<header>
 <%@ include file="common/header.jsp" %>
+</header>
+<section>
+</section>
 
-<body>
-	<a href="signup.member">회원가입</a>
-</body>
 </html>
