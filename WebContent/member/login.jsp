@@ -9,11 +9,10 @@
 </head>
 <%@ include file="../common/header.jsp" %>
 <body>
-	
-	<form action="member/login" method="post">
+	<form action="login.member" method="post">
 		<input type="text" name="id" placeholder="아이디">
-		<input type="password" name="pw" placeholder="비밀번호"><br> 
-		<input type="submit" value="로그인">
+		<input type="password" name="pw" placeholder="비밀번호"><br>
+			<input type="submit" value="로그인">
 	</form>
 </body>
 </html>
