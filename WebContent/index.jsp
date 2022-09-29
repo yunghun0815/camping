@@ -15,6 +15,7 @@
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 	<%@ include file="common/header.jsp"%>
 	<main>
 		<a href="reservationList.res">예약하기</a>
@@ -22,6 +23,8 @@
 		<a href="reservationDetail.res?memberId=${id}">내 예약 목록</a>
 	</main>
 	<%@ include file="common/footer.jsp"%>
+	<a href="signup.member">회원가입</a>
+	<a href="itemList.item">캠핑장비 조회</a>
 </body>
 </html>
 
