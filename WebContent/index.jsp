@@ -11,5 +11,6 @@
 
 <body>
 	<a href="signup.member">회원가입</a>
+	<a href="itemList.item">캠핑장비 조회</a>
 </body>
 </html>
