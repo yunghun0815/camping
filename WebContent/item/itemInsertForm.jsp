@@ -23,14 +23,6 @@
 				<th>장비 설명</th>
 				<td><input type="text" name="info"></td>
 			</tr>
-<!-- 			<tr> -->
-<!-- 				<th>사진 위치</th> -->
-<!-- 				<td><input type="text" name="imgPath"></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr> -->
-<!-- 				<th>사진 경로</th> -->
-<!-- 				<td><input type="text" name="imgName"></td> -->
-<!-- 			</tr> -->
 			<tr>
 				<th>첨부파일</th>
 				<td><input type="file" name="attachedFile"></td>

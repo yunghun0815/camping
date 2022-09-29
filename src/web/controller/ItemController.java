@@ -81,50 +81,52 @@ public class ItemController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		ServletContext application=null;
 		
 		String uri=request.getRequestURI();
 		String cmd = uri.substring(uri.lastIndexOf('/'));
 		String view = "index.jsp";
 		if("/itemInsert.item".equals(cmd)) {
 			
-//			String saveDirectory = application.getRealPath("/Uploads");
-//			int maxPostSize = 1024*1000;
-//			String encoding = "UTF-8";
-//			
-//			try {
-//				MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding);
-//				String fileName = mr.getFilesystemName("attachedFile"); //현재 파일 이름
-//				String ext = fileName.substring(fileName.lastIndexOf(".")); // 파일 확장자
-//				String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
-//				String newFileName = now + ext; //업로드일시.확장자
-//				
-//				File oldFile = new File(saveDirectory + File.separator + fileName);
-//				File newFile = new File(saveDirectory + File.separator + newFileName);
-//				oldFile.renameTo(newFile);
-//				
-//				String name = mr.getParameter("name");
-//				String title = mr.getParameter("title");
-//				String [] cateArray = mr.getParameterValues("cate");
-//			}
-		
+			ServletContext application = request.getServletContext();
+			String saveDirectory = application.getRealPath("/Uploads/item");
+			int maxPostSize = 1024*1000;
+			String encoding = "UTF-8";
 			
-			String name = request.getParameter("name");
-			int price = Integer.parseInt(request.getParameter("price"));
-			String info = request.getParameter("info");
-			String imgPath = request.getParameter("imgPath");
-			String imgName = request.getParameter("imgName");
-
-			Item item = new Item();
-
-			item.setName(name);
-			item.setPrice(price);
-			item.setInfo(info);
-			item.setImgPath(imgPath);
-			item.setImgName(imgName);
-			System.out.println(item);
-			itemDao.insertItem(item);
-			response.sendRedirect("itemList.item");
+			try {
+				MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding);
+				String realName = mr.getFilesystemName("attachedFile"); //현재 파일 이름
+				String ext = realName.substring(realName.lastIndexOf(".")); // 파일 확장자
+				String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
+				String imgName = now + ext; //업로드일시.확장자
+				
+				System.out.println(application.getRealPath("/Uploads/item"));
+				System.out.println(imgName);
+		// Uploads/20220929_13530701.jpg
+				File oldFile = new File(saveDirectory + File.separator + realName);
+				File newFile = new File(saveDirectory + File.separator + imgName);
+				oldFile.renameTo(newFile);
+				
+				String name = mr.getParameter("name");
+				System.out.println("이름 : "+name);
+				int price = Integer.parseInt(mr.getParameter("price"));
+				System.out.println("가격"+price);
+				String info = mr.getParameter("info");
+				System.out.println(info);
+				Item item = new Item();
+				
+				item.setName(name);
+				item.setPrice(price);
+				item.setInfo(info);
+				item.setImgPath("Uploads/item/");
+				item.setImgName(imgName);
+				
+				itemDao.insertItem(item);
+				response.sendRedirect("itemList.item");
+			}catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("errorMessage", "파일업로드 오류");
+				request.getRequestDispatcher("item/itemInsertForm.jsp").forward(request, response);
+			}
 		}//장비 등록
 		else if("/itemUpdate.item".equals(cmd)) {
 			int itemNo = Integer.parseInt(request.getParameter("itemNo"));
