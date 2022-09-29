@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>camping shop</title>
 </head>
-
-<%@ include file="common/header.jsp" %>
-
 <body>
-	<a href="signup.member">회원가입</a>
-	<a href="itemList.item">캠핑장비 조회</a>
+	<%@ include file="common/header.jsp"%>
+	<section class="main">
+		<div style="height: 1000px; border: 1px solid black; ">
+			<span>메인 페이지</span>
+		</div>
+	</section>
+	<%@ include file="common/footer.jsp"%>
+	
 </body>
 </html>
+

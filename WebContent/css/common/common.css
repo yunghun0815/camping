@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+	*{
+		box-sizing: border-box;
+	}
+	ul, ol, li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none !important;
+		color: black;
+	}
+	button{
+		text-decoration: none !important;
+	}
+	.flex{
+		display: flex;
+	}
+	.between{
+		justify-content: space-between;
+	}
+	header{
+		margin-bottom: 100px;
+		border-bottom: 1px solid #ddd;
+		height: 80px;
+	}
+	header>div{
+		width: 1400px;
+		margin: 0 auto;
+	}
+	header .logo{
+		width: 140px;
+	}
+	header>div ul{
+		position: relative;	
+	}
+	header>div ul li{
+		line-height: 65px;
+		height: 80px;
+	}
+	header>div ul li:last-child {
+	    position: absolute;
+    	left: 1230px;
+	    color:#222222;
+    	font-weight: bold;
+	}
+	header>div ul li:last-child a:first-child{
+		margin-right: 20px;
+	}
+	header .header-menu{
+		position: relative;
+    	left: 200px;
+	}
+	header .header-menu>div{
+		display: inline-block;
+	    margin: 0 70px;
+	    text-align: center;
+	}
+	header .header-menu img{
+		width: 30px;
+	    margin-top: 8px;
+	}
+	header .header-menu div a:first-child{
+		display: block;
+	}
+	header .header-menu div a:last-child{
+    	color: #333;
+    	font-weight: bold;
+	    position: relative;
+	    bottom: 35px;
+	}
+	footer{
+		margin-top: 100px;
+		border-top: 1px solid #ddd;
+		padding-top: 50px;
+	}
+	footer>section{
+		width: 1400px;
+		margin: 0 auto;
+	}
+	footer div ul li span{
+		color: gray;
+    	font-size: 14px;	
+	}
+	footer div {
+		height: 160px;
+	}
+	footer div ul {
+		padding-right: 100px;
+	}
+	footer div ul li span:first-child {
+		font-size: 30px;
+		font-weight: bold;
+	}
+	.main{
+	    width: 1300px;
+    	margin: 0 auto;
+	}

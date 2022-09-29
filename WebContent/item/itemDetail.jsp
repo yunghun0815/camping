@@ -7,6 +7,7 @@
 <title>캠핑장비 상세조회</title>
 </head>
 <body>
+
 	<table border=1>
 		<tr>
 			<th>장비번호</th>
@@ -26,7 +27,7 @@
 		</tr>
 		<tr>
 			<th>사진</th>
-			<td><img src="${item.imgPath} ${item.imgName }"></td>
+			<td><img src="${item.imgPath}${item.imgName }"></td>
 		</tr>
 	</table>
 	<a href="itemUpdate.item?itemNo=${item.itemNo}">캠핑장비 수정</a>

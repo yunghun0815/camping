@@ -2,6 +2,7 @@ package web.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -23,6 +24,7 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 	} 
+	
 	public void signup(Member member) {
 		try {
 			con = dataSource.getConnection();
@@ -39,5 +41,26 @@ public class MemberDao {
 			if(con!=null) {try{con.close();}catch(Exception e){}}
 		}
 		
+	}
+	
+	public String login(String id, String pw) {
+		String name = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "select name from member where id = ? and pw = ?";
+			PreparedStatement psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			ResultSet rs = psmt.executeQuery();
+			if(rs.next()) {
+				name = rs.getString(1);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {try{con.close();}catch(Exception e){}}
+		}
+		
+		return name;
 	}
 }

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +7,8 @@
 <title>캠핑장비 등록</title>
 </head>
 <body>
+
+</style>
 	<form action="itemInsert.item" method="post" enctype="multipart/form-data">
 		<table border=1>
 
