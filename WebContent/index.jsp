@@ -10,6 +10,9 @@
 <%@ include file="common/header.jsp" %>
 </header>
 <section>
+<p>
+<p>
+	<a href="campingList.camping">캠핑 리스트</a>
 </section>
-
+	
 </html>
