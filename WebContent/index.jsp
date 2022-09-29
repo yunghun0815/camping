@@ -6,25 +6,16 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-	main{
-		width: 1300px;
-		margin: 0 auto;
-	}
-</style>
+<title>camping shop</title>
 </head>
 <body>
 	<%@ include file="common/header.jsp"%>
-	<main>
-		<a href="reservationList.res">예약하기</a>
-		<a href="reservationList.res?campingNo=1">KCC 예약페이지</a>
-		<a href="reservationDetail.res?memberId=${id}">내 예약 목록</a>
-	</main>
+	<section class="main">
+		<div style="height: 1000px; border: 1px solid black; ">
+			<span>메인 페이지</span>
+		</div>
+	</section>
 	<%@ include file="common/footer.jsp"%>
-	<a href="signup.member">회원가입</a>
-	<a href="itemList.item">캠핑장비 조회</a>
-	<a href="campingList.camping">캠핑 리스트</a>
 </body>
 </html>
 

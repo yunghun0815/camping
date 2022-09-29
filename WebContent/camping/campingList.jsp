@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -8,32 +8,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<H1>Ä·ÇÎÀå ¸®½ºÆ®</H1>
-	<table border=1>
-		<tr>
-			<th>¹øÈ£</th>
-			<th>Ä·ÇÎÀå ÀÌ¸§</th>
-			<th>Á¤º¸</th>
-			<th>°¡°İ</th>
-			<th>ÁÖ¼Ò</th>
-			<th>»çÁø °æ·Î</th>
-			<th>»çÁø ÀÌ¸§</th>
-		</tr>
-		
-		<c:forEach var="camp" items="${campList}">
+	<%@ include file="../common/header.jsp"%>
+	<section class="main">
+	<div style="height: 1000px; border: 1px solid black; ">
+		<H1>ìº í•‘ì¥ ë¦¬ìŠ¤íŠ¸</H1>
+		<table border=1>
 			<tr>
-				<td><a href="campingDetail.camping?campno=${camp.campingNo}">${camp.campingNo}</a></td>
-				<!--? µÚ¿¡ ÆÄ¶ó¹ÌÅÍ -->
-				<td>${camp.name}</td>
-				<td>${camp.info}</td>
-				<td>${camp.price}</td>
-				<td>${camp.address}</td>
-				<td>${camp.imgPath}</td>
-				<td>${camp.imgName}</td>
-				<%--vo¿¡ ÀÖ´Â º¯¼ö¸í--%>
+				<th>ë²ˆí˜¸</th>
+				<th>ìº í•‘ì¥ ì´ë¦„</th>
+				<th>ì •ë³´</th>
+				<th>ê°€ê²©</th>
+				<th>ì£¼ì†Œ</th>
+				<th>ì‚¬ì§„ ê²½ë¡œ</th>
+				<th>ì‚¬ì§„ ì´ë¦„</th>
 			</tr>
-		</c:forEach>
-		</table>
-	<a href="campingInsert.camping">Ä·ÇÎÀå µî·Ï</a>
+			
+			<c:forEach var="camp" items="${campList}">
+				<tr>
+					<td><a href="campingDetail.camping?campno=${camp.campingNo}">${camp.campingNo}</a></td>
+					<!--? ë’¤ì— íŒŒë¼ë¯¸í„° -->
+					<td>${camp.name}</td>
+					<td>${camp.info}</td>
+					<td>${camp.price}</td>
+					<td>${camp.address}</td>
+					<td>${camp.imgPath}</td>
+					<td>${camp.imgName}</td>
+					<%--voì— ìˆëŠ” ë³€ìˆ˜ëª…--%>
+				</tr>
+			</c:forEach>
+			</table>
+		<a href="campingInsert.camping">ìº í•‘ì¥ ë“±ë¡</a>
+	</div>
+	</section>
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

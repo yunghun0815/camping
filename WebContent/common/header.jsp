@@ -9,20 +9,20 @@
 	<div>
 		<ul class="flex">
 			<li>
-				<img class="logo" src="<%= cv %>/images/common/logo.png">
+				<a href="<%= cv %>"><img class="logo" src="<%= cv %>/images/common/logo.png"></a>
 			</li>
 			<li class="header-menu flex">
 				<div>
-					<a href="#"><img src="<%= cv %>/images/common/camping.jpg"></a>
-					<a href="#">캠핑장</a>
+					<a href="campingList.camping"><img src="<%= cv %>/images/common/camping.jpg"></a>
+					<a href="campingList.camping">캠핑장</a>
 				</div>
 				<div>
-					<a href="#"><img src="<%= cv %>/images/common/item.jpg"></a>
-					<a href="#">캠핑장비</a>
+					<a href="itemList.item"><img src="<%= cv %>/images/common/item.jpg"></a>
+					<a href="itemList.item">캠핑장비</a>
 				</div>
 				<div>	
-					<a href="/reservationList.res"><img src="<%= cv %>/images/common/calendar.png"></a>
-					<a href="/reservationList.res">내 예약목록</a>
+					<a href="reservationDetail.res?memberId=${id}"><img src="<%= cv %>/images/common/calendar.png"></a>
+					<a href="reservationDetail.res?memberId=${id}">내 예약목록</a>
 				</div>
 			</li>
 			<li>
