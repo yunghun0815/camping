@@ -32,7 +32,7 @@ public class MemberController extends HttpServlet {
 		}else if("/login.member".equals(path)) { //로그인 페이지
 			view = "/member/login.jsp";
 		}else if("/logout.member".equals(path)) { //로그아웃 처리
-			session.removeAttribute("name");
+			session.invalidate();
 			view = "/index.jsp";
 		}
 		
@@ -61,6 +61,11 @@ public class MemberController extends HttpServlet {
 				//로그인 성공시 세션에 추가 후 인덱스페이지로
 				session.removeAttribute("loginCheck");
 				session.setAttribute("name", name);
+				if(id.equals("admin")) {
+					session.setAttribute("role", "admin");
+				}else {
+					session.setAttribute("role", "user");
+				}
 				session.setAttribute("id", id); // -> ${id}  == jyh 
 				view = "/CampingSite/index.jsp";
 			}else { //이름이 없으면 로그인페이지로 이동

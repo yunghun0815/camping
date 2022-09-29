@@ -35,24 +35,19 @@ public class ItemController extends HttpServlet {
 		String view = "index.jsp";
 
 		if("/itemList.item".equals(cmd)) {
-			System.out.println("�����ü ��ȸ�� ��û�մϴ�.");
 			request.setAttribute("itemList", itemDao.getItemList());
-			System.out.println(itemDao.getItemList());
 			view = "/item/itemList.jsp";
 		}//�����ȸ ����Ʈ
 		else if("/itemDetail.item".equals(cmd)) {
-			System.out.println("���� ��ȸ�� ��û�մϴ�.");
 			String itemNoStr = request.getParameter("itemNo");
 			int itemNo = Integer.parseInt(itemNoStr);
 			request.setAttribute("item", itemDao.detailItem(itemNo));
 			view = "/item/itemDetail.jsp";
 		}//��� �� ��ȸ
 		else if("/itemInsert.item".equals(cmd)) {
-			System.out.println("��� ����� ��û�մϴ�.");
 			view = "/item/itemInsertForm.jsp";
 		}//��� ���
 		else if("/itemUpdate.item".equals(cmd)) {
-			System.out.println("���������� ��û�մϴ�.");
 			String itemNoStr = request.getParameter("itemNo");
 			int itemNo = Integer.parseInt(itemNoStr);
 			request.setAttribute("item", itemDao.detailItem(itemNo));
@@ -90,7 +85,6 @@ public class ItemController extends HttpServlet {
 			item.setInfo(info);
 			item.setImgPath(imgPath);
 			item.setImgName(imgName);
-			System.out.println(item);
 			itemDao.insertItem(item);
 			response.sendRedirect("itemList.item");
 		}//��� ���
@@ -112,7 +106,6 @@ public class ItemController extends HttpServlet {
 			item.setImgName(imgName);
 
 			itemDao.updateItem(item);
-			System.out.println(imgName);
 			response.sendRedirect("itemList.item");
 		}//��� ����
 		else if("/itemDelete.item".equals(cmd)) {

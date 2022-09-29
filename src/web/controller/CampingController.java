@@ -17,39 +17,29 @@ import web.vo.Camping;
 public class CampingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-    public CampingController() {
-        super();
-        System.out.println("a");
-    }
     CampingDao dao = new CampingDao(); //DAO 객체 생성
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.lastIndexOf('/'));
 		String view ="/index.jsp"; //
-		System.out.println(cmd);
 		if("/campingList.camping".equals(cmd)) {
-			System.out.println("캠핑장 정보 조회");
 			request.setAttribute("campList", dao.getCampingList());
 			view = "/camping/campingList.jsp";
 			
 		} else if("/campingDetail.camping".equals(cmd)) {
-			System.out.println("상세 정보 요청");
 			String campnoStr = request.getParameter("campno");
 			int campno = Integer.parseInt(campnoStr);
 			request.setAttribute("camp", dao.detailCamping(campno)); //" "-> form에 전달할 속성
 			view = "/camping/campingDetail.jsp";
 		} else if("/campingInsert.camping".equals(cmd)) {
-			System.out.println("입력 양식을 요청");
 			view="/camping/campingInsertForm.jsp";
 		} else if("/campingUpdate.camping".equals(cmd)) {
-			System.out.println("수정 정보를 요청");
 			String campnoStr = request.getParameter("campno"); //원래 값을 받아와야 함
 			int campno = Integer.parseInt(campnoStr);
 			request.setAttribute("camp", dao.detailCamping(campno)); //상세조회에서 수정할 값을 찾아와야 해서 detailcamping 메서드 가져옴
 			view="/camping/campingUpdate.jsp";
 		} else if("/campingDelete.camping".equals(cmd)) {
-			System.out.println("삭제 정보를 요청");
 		}
 		
 		RequestDispatcher disp = request.getRequestDispatcher(view);
@@ -78,7 +68,6 @@ public class CampingController extends HttpServlet {
 			camp.setImgPath(imgPath);
 			camp.setImgName(imgName);
 			
-			System.out.println(camp);
 			dao.insertCamping(camp);
 			response.sendRedirect("campingList.camping");
 		} else if("/campingUpdate.camping".equals(cmd)) {
@@ -100,7 +89,6 @@ public class CampingController extends HttpServlet {
 			camp.setImgPath(imgPath);
 			camp.setImgName(imgName);
 			
-			System.out.println(camp);
 			dao.updateCamping(camp);
 			response.sendRedirect("campingList.camping");
 		} else if("/campingDelete.camping".equals(cmd)) {
