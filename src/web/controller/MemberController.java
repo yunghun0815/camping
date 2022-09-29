@@ -1,6 +1,8 @@
 package web.controller;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,6 +62,7 @@ public class MemberController extends HttpServlet {
 				//로그인 성공시 세션에 추가 후 인덱스페이지로
 				session.removeAttribute("loginCheck");
 				session.setAttribute("name", name);
+				session.setAttribute("id", id);
 				view = "/CampingSite/index.jsp";
 			}else { 
 				//실패시 다시 로그인 페이지로
@@ -68,7 +71,7 @@ public class MemberController extends HttpServlet {
 				view = "login.member";
 			}
 		}else if("/logout.member".equals(path)) { //로그아웃 처리
-			session.removeAttribute("name");
+			session.invalidate();
 			view = "/CampingSite/index.jsp";
 		}
 		response.sendRedirect(view);
