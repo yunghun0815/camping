@@ -53,19 +53,17 @@ public class MemberController extends HttpServlet {
 			member.setPhoneNumber(request.getParameter("phoneNumber"));
 			dao.signup(member);
 			view = "login.member";
-		}else if("/login.member".equals(path)){
-			Member member = new Member();
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
-			String name = dao.login(id, pw);
-			if(name != null) { 
+		}else if("/login.member".equals(path)){ //로그인 post 처리
+			String id = request.getParameter("id"); // 파라미터값 id
+			String pw = request.getParameter("pw"); // 파라미터값 pw
+			String name = dao.login(id, pw); //로그인 메소드 실행
+			if(name != null) {  //이름이 있으면 session에 추가 
 				//로그인 성공시 세션에 추가 후 인덱스페이지로
 				session.removeAttribute("loginCheck");
 				session.setAttribute("name", name);
-				session.setAttribute("id", id);
+				session.setAttribute("id", id); // -> ${id}  == jyh 
 				view = "/CampingSite/index.jsp";
-			}else { 
-				//실패시 다시 로그인 페이지로
+			}else { //이름이 없으면 로그인페이지로 이동
 				session.setAttribute("loginCheck", "fail");
 				System.out.println("로그인실패");
 				view = "login.member";
