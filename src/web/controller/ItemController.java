@@ -88,6 +88,25 @@ public class ItemController extends HttpServlet {
 		String view = "index.jsp";
 		if("/itemInsert.item".equals(cmd)) {
 			
+//			String saveDirectory = application.getRealPath("/Uploads");
+//			int maxPostSize = 1024*1000;
+//			String encoding = "UTF-8";
+//			
+//			try {
+//				MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding);
+//				String fileName = mr.getFilesystemName("attachedFile"); //현재 파일 이름
+//				String ext = fileName.substring(fileName.lastIndexOf(".")); // 파일 확장자
+//				String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
+//				String newFileName = now + ext; //업로드일시.확장자
+//				
+//				File oldFile = new File(saveDirectory + File.separator + fileName);
+//				File newFile = new File(saveDirectory + File.separator + newFileName);
+//				oldFile.renameTo(newFile);
+//				
+//				String name = mr.getParameter("name");
+//				String title = mr.getParameter("title");
+//				String [] cateArray = mr.getParameterValues("cate");
+//			}
 		
 			
 			String name = request.getParameter("name");
