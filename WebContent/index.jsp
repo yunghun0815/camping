@@ -15,7 +15,6 @@
 </style>
 </head>
 <body>
-<<<<<<< HEAD
 	<%@ include file="common/header.jsp"%>
 	<main>
 		<a href="reservationList.res">예약하기</a>
@@ -25,6 +24,7 @@
 	<%@ include file="common/footer.jsp"%>
 	<a href="signup.member">회원가입</a>
 	<a href="itemList.item">캠핑장비 조회</a>
+	<a href="campingList.camping">캠핑 리스트</a>
 </body>
 </html>
 
