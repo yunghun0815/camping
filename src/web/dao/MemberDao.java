@@ -63,4 +63,23 @@ public class MemberDao {
 		
 		return name;
 	}
+
+	public int idCheck(String id) {
+		int count = 0;
+		try {
+			con = dataSource.getConnection();
+			String sql = "select count(*) from member where id = ?";
+			PreparedStatement psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);
+			ResultSet rs = psmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {try{con.close();}catch(Exception e){}}
+		}
+		return count;
+	}
 }

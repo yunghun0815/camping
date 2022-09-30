@@ -29,6 +29,26 @@
 	<td><input type="text" name="address" value="${camp.address}"></td>
 </tr>
 <tr>
+	<td>지역 카테고리</td>
+	<td>
+		<select name="category">
+			<option value="서울">서울</option>
+			<option value="부산">부산</option>
+			<option value="인천">인천</option>
+			<option value="울산">울산</option>
+			<option value="광주">광주</option>
+			<option value="대전">대전</option>
+			<option value="대구">대구</option>
+			<option value="경기도">경기도</option>
+			<option value="강원도">강원도</option>
+			<option value="충청도">충청도</option>
+			<option value="전라도">전라도</option>
+			<option value="경상도">경상도</option>
+			<option value="제주도">제주도</option>
+		</select>
+	</td>
+</tr>
+<tr>
 	<td>이미지 경로</td>
 	<td><input type="text" name="imgPath" value="${camp.imgPath}"></td>
 </tr>

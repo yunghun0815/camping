@@ -4,9 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>img{width: 20px;}</style>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
@@ -19,8 +20,7 @@
 				<th>정보</th>
 				<th>가격</th>
 				<th>주소</th>
-				<th>사진 경로</th>
-				<th>사진 이름</th>
+				<th>사진</th>
 			</tr>
 			
 			<c:forEach var="camp" items="${campList}">
@@ -31,11 +31,32 @@
 					<td>${camp.info}</td>
 					<td>${camp.price}</td>
 					<td>${camp.address}</td>
-					<td>${camp.imgPath}</td>
-					<td>${camp.imgName}</td>
+					<td><img class="campingImage" src="${camp.imgPath}${camp.imgName}"></td>
 					<%--vo에 있는 변수명--%>
 				</tr>
 			</c:forEach>
+			</table>
+			<table>
+				<c:if test="${campList.size()/5 < 1}">
+					<tr>
+						<c:forEach items="${campList }" var="camp">
+							<span>${camp.name }</span>
+						</c:forEach>
+					</tr>
+				</c:if>	
+				<c:if test="${campList.size()/5 >=1 }">
+					<c:forEach begin="0" end="${campList.size() / 5}" var="i">
+						<c:if test="${campList[i*5] != null}"> 
+							<tr style="height: 200px;">
+								<c:forEach begin="${i * 5}" end="${(i+1) * 5 -1}" var="j">
+									<c:if test="${campList[j] != null}">
+										<td>이름 : ${campList[j].name}</td>
+									</c:if>
+								</c:forEach>	
+							</tr>			
+						</c:if>	
+					</c:forEach>
+				</c:if>
 			</table>
 		<a href="campingInsert.camping">캠핑장 등록</a>
 	</div>

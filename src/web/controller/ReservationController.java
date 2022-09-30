@@ -19,7 +19,7 @@ public class ReservationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String view = "/index.jsp";
+		String view = "index.do";
 		String uri = request.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
 		String path = uri.substring(lastIndex);
@@ -50,7 +50,7 @@ public class ReservationController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/index.jsp";
+		String view = "index.do";
 		String uri = request.getRequestURI();
 		ReservationDao dao = new ReservationDao();
 		int lastIndex = uri.lastIndexOf("/");
