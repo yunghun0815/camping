@@ -14,6 +14,9 @@
 		width: 20px;
 	}
 </style>
+	<%@ include file="../common/header.jsp"%>
+	<section class="main">
+		<div>
 <table border=1>
 	<tr>
 		<th>장비 번호</th>
@@ -22,6 +25,7 @@
 		<th>장비 설명</th>
 		<th>사진</th>
 	</tr>
+
 <c:forEach var="item" items="${itemList }">
 	<tr>
 		<td><a href="itemDetail.item?itemNo=${item.itemNo}">${item.itemNo }</a></td>
@@ -33,5 +37,8 @@
 </c:forEach>
 </table>
 	<a href="itemInsert.item">캠핑장비 등록</a>
+			</div>
+	</section>
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

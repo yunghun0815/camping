@@ -8,7 +8,6 @@ import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,62 +18,48 @@ import com.oreilly.servlet.MultipartRequest;
 import web.dao.ItemDao;
 import web.vo.Item;
 
-/**
- * Servlet implementation class ItemController
- */
 @WebServlet("*.item")
 public class ItemController extends HttpServlet {
 
    private static final long serialVersionUID = 1L;
 
-   /**
-    * @see HttpServlet#HttpServlet()
-    */
-   public ItemController() {
-      super();
-      // TODO Auto-generated constructor stub
-   }
 
    ItemDao itemDao = new ItemDao();
-   /**
-    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-    */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       request.setCharacterEncoding("utf-8");
       String uri = request.getRequestURI();
       String cmd = uri.substring(uri.lastIndexOf('/'));
-      String view = "index.jsp";
+      String view = "index.do";
 
       if("/itemList.item".equals(cmd)) {
-         System.out.println("장비전체 조회를 요청합니다.");
          request.setAttribute("itemList", itemDao.getItemList());
          System.out.println(itemDao.getItemList());
          view = "/item/itemList.jsp";
-      }//장비조회 리스트
+      }// 옣鍮꾩“ 쉶 由ъ뒪 듃
       else if("/itemDetail.item".equals(cmd)) {
-         System.out.println("장비상세 조회를 요청합니다.");
+         System.out.println(" 옣鍮꾩긽 꽭 議고쉶瑜   슂泥  빀 땲 떎.");
          String itemNoStr = request.getParameter("itemNo");
          int itemNo = Integer.parseInt(itemNoStr);
          request.setAttribute("item", itemDao.detailItem(itemNo));
          view = "/item/itemDetail.jsp";
-      }//장비 상세 조회
+      }// 옣鍮   긽 꽭 議고쉶
       else if("/itemInsert.item".equals(cmd)) {
-         System.out.println("장비 등록을 요청합니다.");
+         System.out.println(" 옣鍮   벑濡앹쓣  슂泥  빀 땲 떎.");
          view = "/item/itemInsertForm.jsp";
-      }//장비 등록
+      }// 옣鍮   벑濡 
       else if("/itemUpdate.item".equals(cmd)) {
-         System.out.println("수정정보를 요청합니다.");
+         System.out.println(" 닔 젙 젙蹂대    슂泥  빀 땲 떎.");
          String itemNoStr = request.getParameter("itemNo");
          int itemNo = Integer.parseInt(itemNoStr);
          request.setAttribute("item", itemDao.detailItem(itemNo));
          view = "/item/itemUpdateForm.jsp";
-      }//장비 수정
+      }// 옣鍮   닔 젙
 
 
       RequestDispatcher disp = request.getRequestDispatcher(view);
       disp.forward(request, response);
 
-   }//doget메소드
+   }//doget硫붿냼 뱶
 
    /**
     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -84,7 +69,7 @@ public class ItemController extends HttpServlet {
       
       String uri=request.getRequestURI();
       String cmd = uri.substring(uri.lastIndexOf('/'));
-      String view = "index.jsp";
+      String view = "index.do";
       if("/itemInsert.item".equals(cmd)) {
          
          ServletContext application = request.getServletContext();
@@ -96,10 +81,10 @@ public class ItemController extends HttpServlet {
 
             
             MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding);
-            String realName = mr.getFilesystemName("attachedFile"); //현재 파일 이름
-            String ext = realName.substring(realName.lastIndexOf(".")); // 파일 확장자
+            String realName = mr.getFilesystemName("attachedFile"); // 쁽 옱  뙆 씪  씠由 
+            String ext = realName.substring(realName.lastIndexOf(".")); //  뙆 씪  솗 옣 옄
             String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
-            String imgName = now + ext; //업로드일시.확장자
+            String imgName = now + ext; // 뾽濡쒕뱶 씪 떆. 솗 옣 옄
             
             System.out.println(application.getRealPath("/Uploads/item"));
             System.out.println(imgName);
@@ -109,11 +94,8 @@ public class ItemController extends HttpServlet {
             oldFile.renameTo(newFile);
             
             String name = mr.getParameter("name");
-            System.out.println("이름 : "+name);
             int price = Integer.parseInt(mr.getParameter("price"));
-            System.out.println("가격"+price);
             String info = mr.getParameter("info");
-            System.out.println(info);
             Item item = new Item();
             
             item.setName(name);
@@ -126,13 +108,13 @@ public class ItemController extends HttpServlet {
             response.sendRedirect("itemList.item");
          }catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("errorMessage", "파일업로드 오류");
+            request.setAttribute("errorMessage", " 뙆 씪 뾽濡쒕뱶  삤瑜 ");
             request.getRequestDispatcher("item/itemInsertForm.jsp").forward(request, response);
          }
       
          
 
-      }//장비 등록
+      }// 옣鍮   벑濡 
       else if("/itemUpdate.item".equals(cmd)) {
          int itemNo = Integer.parseInt(request.getParameter("itemNo"));
          String name = request.getParameter("name");
@@ -153,14 +135,14 @@ public class ItemController extends HttpServlet {
          itemDao.updateItem(item);
          System.out.println(imgName);
          response.sendRedirect("itemList.item");
-      }//장비 수정
+      }// 옣鍮   닔 젙
       else if("/itemDelete.item".equals(cmd)) {
          String itemNoStr = request.getParameter("itemNo");
          int itemNo = Integer.parseInt(itemNoStr);
          itemDao.deleteItem(itemNo);
          response.sendRedirect("itemList.item");
-      }//장비 삭제
+      }// 옣鍮   궘 젣
 
-   }//doPost메소드
+   }//doPost硫붿냼 뱶
 
-}//클래스
+}// 겢 옒 뒪

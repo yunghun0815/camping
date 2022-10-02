@@ -22,7 +22,7 @@ public class MemberController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String view = "/index.jsp";
+		String view = "index.do";
 		String uri = request.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
 		String path = uri.substring(lastIndex);
@@ -30,17 +30,21 @@ public class MemberController extends HttpServlet {
 		if("/signup.member".equals(path)) { //회원가입 페이지
 			view = "/member/signup.jsp";
 		}else if("/login.member".equals(path)) { //로그인 페이지
+			if(session.getAttribute("loginCheck") != null) {
+				session.removeAttribute("loginCheck");
+				request.setAttribute("loginCheck", "fail");
+			}
 			view = "/member/login.jsp";
 		}else if("/logout.member".equals(path)) { //로그아웃 처리
 			session.invalidate();
-			view = "/index.jsp";
+			view = "index.do";
 		}
 		
 		request.getRequestDispatcher(view).forward(request, response);
 	}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/index.jsp";
+		String view = "index.do";
 		String uri = request.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
 		String path = uri.substring(lastIndex);
@@ -67,7 +71,7 @@ public class MemberController extends HttpServlet {
 					session.setAttribute("role", "user");
 				}
 				session.setAttribute("id", id); // -> ${id}  == jyh 
-				view = "/CampingSite/index.jsp";
+				view = "index.do";
 			}else { //이름이 없으면 로그인페이지로 이동
 				session.setAttribute("loginCheck", "fail");
 				System.out.println("로그인실패");
@@ -75,7 +79,7 @@ public class MemberController extends HttpServlet {
 			}
 		}else if("/logout.member".equals(path)) { //로그아웃 처리
 			session.invalidate();
-			view = "/CampingSite/index.jsp";
+			view = "index.do";
 		}
 		response.sendRedirect(view);
 	}

@@ -8,7 +8,16 @@ public class Camping {
 	private String address;
 	private String imgPath;
 	private String imgName;
+	private String category;
 	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public Camping() {
 		super();
 		// TODO Auto-generated constructor stub

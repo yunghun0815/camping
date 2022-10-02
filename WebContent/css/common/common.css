@@ -62,12 +62,11 @@
 	}
 	header .header-menu div a:first-child{
 		display: block;
+		height: 25px;
 	}
 	header .header-menu div a:last-child{
     	color: #333;
     	font-weight: bold;
-	    position: relative;
-	    bottom: 35px;
 	}
 	footer{
 		margin-top: 100px;
@@ -95,4 +94,9 @@
 	.main{
 	    width: 1300px;
     	margin: 0 auto;
+	}
+	small{
+	    color: red;
+	    font-weight: bold;
+	    margin-left: 10px;
 	}
