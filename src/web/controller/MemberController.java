@@ -61,6 +61,8 @@ public class MemberController extends HttpServlet {
 			String id = request.getParameter("id"); // 파라미터값 id
 			String pw = request.getParameter("pw"); // 파라미터값 pw
 			String name = dao.login(id, pw); //로그인 메소드 실행
+			dao.login2(id, pw);
+			
 			if(name != null) {  //이름이 있으면 session에 추가 
 				//로그인 성공시 세션에 추가 후 인덱스페이지로
 				session.removeAttribute("loginCheck");

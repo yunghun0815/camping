@@ -27,6 +27,7 @@ $(function(){
 							}else{ //가입 가능
 								alert("사용 가능한 아이디입니다.")
 								$("#loginId").attr("disabled", "disabled");
+								$("#returnId").attr("value", $("#loginId").val());
 								$("#checkButton").attr("disabled", "disabled");
 								$("#checkButton").addClass("fail");
 								idDBCheck = true;

@@ -20,8 +20,9 @@
 				<input id="loginName" type="text" name="name" placeholder="이름을 입력해주세요."><br>
 				<small id="warnName">2자리 이상 한글만 가능합니다</small><p>
 				<p>아이디</p>
-				<input id="loginId" type="text" name="id" placeholder="아이디를 입력해주세요."><button id="checkButton" type="button">중복체크</button><br>
+				<input id="loginId" type="text" placeholder="아이디를 입력해주세요."><button id="checkButton" type="button">중복체크</button><br>
 				<small id="warnId">4-12자리 영어, 숫자만 사용 가능합니다.</small><p>
+				<input id="returnId" type="hidden" name ="id">
 				<input type="hidden" id="count" value="${count}">
 				<p>비밀번호</p>
 				<input id="loginPw" type="password" name="pw" placeholder="비밀번호를 입력해주세요.(4자리 이상)"><br>

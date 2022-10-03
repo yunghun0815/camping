@@ -37,7 +37,6 @@ public class ReservationController extends HttpServlet {
 			view = "/reservation/reservationList.jsp";
 		}else if("/reservationDetail.res".equals(path)) {
 			String id = request.getParameter("memberId");
-			System.out.println(id);
 			if(id == null || id.isEmpty()) {
 				view = "login.member";
 			}else {
