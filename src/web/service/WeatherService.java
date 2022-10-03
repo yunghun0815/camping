@@ -28,7 +28,8 @@ public class WeatherService {
 	
 	int hour = Integer.parseInt(sdf2.format(date));
 	int min = Integer.parseInt(sdf3.format(date));
-	String nx = "37"; //서울
+	//서울 종로구, 성동구, 중구 좌표
+	String nx = "37"; 
 	String ny = "127";
 	
 	
@@ -52,7 +53,7 @@ public class WeatherService {
 			con.setRequestMethod("GET");
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			
+			System.out.println(url);
 			if (responseCode == 200) { 
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			} else { 

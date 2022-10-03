@@ -23,7 +23,6 @@ public class AjaxController extends HttpServlet {
 		if("/idCheck.ajax".equals(path)) {
 			String id = request.getParameter("checkId");
 			int count = dao.idCheck(id);
-			System.out.println(count);
 			request.setAttribute("count", count);
 			response.setContentType("application/x-json; charset=utf-8");
 			response.getWriter().print(count);

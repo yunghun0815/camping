@@ -40,7 +40,7 @@
 		cursor: pointer !important;
 	}
 	
-	.loginform input[name="id"]{
+	#loginId{
 		width: 200px;
 		margin-right: 10px;
 	}
