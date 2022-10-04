@@ -41,8 +41,8 @@ public class CampingDao {
 				camp.setInfo(rs.getString("info"));
 				camp.setPrice(rs.getInt("price"));
 				camp.setAddress(rs.getString("address"));
-				camp.setImgPath(rs.getString("img_path"));
-				camp.setImgName(rs.getString("img_name")); //" " -> 테이블 컬럼명
+				//camp.setImgPath(rs.getString("img_path"));
+				//camp.setImgName(rs.getString("img_name")); //" " -> 테이블 컬럼명
 				
 				campList.add(camp);
 			}

@@ -1,44 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Ä·ÇÎÀå ÀÔ·Â ¾ç½Ä</h1>
-<form action="campingInsert.camping" method="post">
+<h1>ìº í•‘ìž¥ ìž…ë ¥ ì–‘ì‹</h1>
+<form action="campingInsert.camping" method="post" enctype="multipart/form-data">
 <table border=1>
 <tr>
-	<td> Ä·ÇÎÀå ÀÌ¸§ </td>
-	<td> <input type="text" name="name"> </td> <!-- ¼­¹ö¿¡¼­ name ¸íÀ¸·Î ²¨³½ °ª¿¡´Â value ¿¡ ÇØ´çÇÏ´Â °ªÀÌ µé¾îÀÖ¾î¿ä -->
+   <td> ìº í•‘ìž¥ ì´ë¦„ </td>
+   <td> <input type="text" name="name"> </td> <!-- ì„œë²„ì—ì„œ name ëª…ìœ¼ë¡œ êº¼ë‚¸ ê°’ì—ëŠ” value ì— í•´ë‹¹í•˜ëŠ” ê°’ì´ ë“¤ì–´ìžˆì–´ìš” -->
 </tr>
 <tr>
-	<td> »ó¼¼Á¤º¸ </td>
-	<td><input type="text" name="info"> </td>
+   <td> ìƒì„¸ì •ë³´ </td>
+   <td><input type="text" name="info"> </td>
 </tr>
 <tr>
-	<td>°¡°Ý</td>
-	<td><input type="number" name="price" ></td>
+   <td>ê°€ê²©</td>
+   <td><input type="number" name="price" ></td>
 </tr>
 <tr>
-	<td>ÁÖ¼Ò</td>
-	<td><input type="text" name="address"></td>
+   <td>ì£¼ì†Œ</td>
+   <td><input type="text" name="address"></td>
 </tr>
 <tr>
-	<td>ÀÌ¹ÌÁö °æ·Î</td>
-	<td><input type="text" name="imgPath"></td>
-</tr>
-<tr>
-	<td>ÀÌ¹ÌÁö ÀÌ¸§</td>
-	<td><input type="text" name ="imgName"></td>
+   <th>ì²¨ë¶€íŒŒì¼</th>
+   <td><input type="file" name="attachedFile"></td>
 </tr>
 </table>
 
-<input type="submit" value="ÀúÀå">
-<input type="reset" value="Ãë¼Ò">
+<input type="submit" value="ì €ìž¥">
+<input type="reset" value="ì·¨ì†Œ">
 
 </form>
 </body>

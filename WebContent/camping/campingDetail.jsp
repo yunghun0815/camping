@@ -1,34 +1,157 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #90c8ac;
+	background: linear-gradient(to bottom, #90c8ac 5%, #90c8ac 100%);
+	background-color: #90c8ac;
+	border-radius: 4px;
+	border: 1px solid #90c8ac;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 6px 270px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #90c8ac;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #90c8ac 5%, #90c8ac 100%);
+	background-color: #90c8ac;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+ .font { 
+  font-size: xxx-large; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+.box{
+	position: relative;
+}
+.box1 {
+    display: inline-block;
+}
+.box2 {
+    display: inline-block;
+    position: absolute;
+    top: 1px;
+    margin-left: 40px;
+    
+}
+.service{
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+.serviceList{
+	list-style: none;
+	float: left;
+	margin: auto;
+	margin-left: 20px;
+	align-items: center;
+	text-align : center;	
+}
+.line{
+    border-bottom: 0.2rem solid #f2f2f2;
+    width: 600px;
+}
+.box3{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.box4{
+	margin-top: 30px;
+	margin-bottom: 44px;
+}
+</style>
 <body>
-<h1> Ä·ÇÎÀå »ó¼¼ Á¤º¸</h1>
-<c:if test="${not empty camp}">
-Ä·ÇÎÀå ¹øÈ£ : ${camp.campingNo}<br>
-ÀÌ¸§: ${camp.name} <br>
-Á¤º¸: ${camp.info} <br>
-°¡°İ: ${camp.price} <br>
-ÁÖ¼Ò: ${camp.address} <br>
-ÀÌ¹ÌÁö °æ·Î: ${camp.imgPath} <br>
-ÀÌ¹ÌÁö ÀÌ¸§: ${camp.imgName } <br>
+	<%@ include file="../common/header.jsp"%>
+	<section class="main">
+		<div>
+			<c:if test="${not empty camp}">
+				<div class="box">
+					<div class="box1">
+						<!--<img src="${camp.imgPath}${camp.imgName}">  -->
+						<img src="images/1.png" width="650px" height="650px">
+					</div>
+					
+					<div class="box2">
+						<h2><p class="font">${camp.name}</p></h2>
+						${camp.address} <br>
+						<fmt:formatNumber value="${camp.price}" type="currency" var="price" />
+						<h3>${price}/ë°•</h3>
+					
+						<div style="height: 190px">	
+							<div class="line"></div>
+							<div> 
+								<h2 class="service">ì¸ê¸°ì‹œì„¤ ì„œë¹„ìŠ¤</h2>
+							</div>
+					
+							<div style="margin-left: -48px">
+								<ul>
+									<li class="serviceList">
+										<img src="images/ì£¼ì°¨.png"><br>
+										<div>ì£¼ì°¨ê°€ëŠ¥</div>
+									</li>
+									<li class="serviceList">
+										<img src="images/ìˆ˜ì˜ì¥.png"> 
+										<div>ìˆ˜ì˜ì¥</div>
+									</li>
+									<li class="serviceList">
+										<img src="images/ì™€ì´íŒŒì´.png"> 
+										<div>ì™€ì´íŒŒì´</div>
+									</li>
+									<li class="serviceList">
+										<img src="images/ë°”ë² í.png"> 
+										<div>ë°”ë² í</div>
+									</li>
+									<li class="serviceList">
+										<img src="images/ë§¤ì .png"> 
+										<div>ë§¤ì </div>
+									</li>
+									<li class="serviceList">
+										<img src="images/ê¸€ë¨í•‘.png"> 
+										<div>ê¸€ë¨í•‘</div>
+									</li>
+								</ul>
+							</div>
+						</div>		
+						<div class="line"></div>
+								
+						
+				
+						<div class="box3">${camp.info}</div>
+						<!--<a href="campingUpdate.camping?campno=${camp.campingNo}">ìˆ˜ì •</a> -->
+						
+						<div class="line"></div>
+						
+						<div class="box4">
+						<a href="reservationList.res?campingNo=${camp.campingNo}"class="myButton">ì˜ˆ ì•½</a>
+						</div>
+						
+					</div>
+				</div>
+			</c:if>
 
-<a href = "campingUpdate.camping?campno=${camp.campingNo}">¼öÁ¤</a>
-
-<form action="campingDelete.camping" method="post"> 
-<input type="hidden" name="campno" value="${camp.campingNo}">
-<input type="submit" value="»èÁ¦">
-</form>
-</c:if>
-
-<c:if test="${empty camp.campingNo}">
-Ä·ÇÎ Á¤º¸°¡ ¾ø½À´Ï´Ù.
-</c:if>
-
+			<c:if test="${empty camp.campingNo}">
+				ìº í•‘ ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.
+			</c:if>
+		</div>
+	</section>
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>
