@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.dao.CampingDao;
 import web.dao.ReservationDao;
 import web.vo.Reservation;
 
@@ -26,13 +27,14 @@ public class ReservationController extends HttpServlet {
 		ReservationDao dao = new ReservationDao();
 		
 		if("/reservationInsert.res".equals(path)) {
+			CampingDao campingDao = new CampingDao();
 			request.setAttribute("reservationDate", request.getParameter("reservationDate"));
-			request.setAttribute("campingNo", request.getParameter("campingNo"));
+			
+			request.setAttribute("camping", campingDao.detailCamping(Integer.parseInt(request.getParameter("campingNo"))));
 			view = "/reservation/reservationInsertForm.jsp";
 		}else if("/reservationList.res".equals(path)) {
-			int campingNo = 1;
+			int campingNo = Integer.parseInt(request.getParameter("campingNo"));
 			List<Date> list = dao.getCampingNoReservation(campingNo);
-			request.setAttribute("campingName", "KCC");
 			request.setAttribute("dateList", list);
 			view = "/reservation/reservationList.jsp";
 		}else if("/reservationDetail.res".equals(path)) {

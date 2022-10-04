@@ -75,7 +75,7 @@ public class ReservationDao {
 			con = dataSource.getConnection();
 			String sql = "select r.reservation_no, r.reservation_date, c.name, c.price, c.address, c.img_path, r.personnel, "
 					+ "c.img_name from reservation r join camping c on r.camping_no = c.camping_no where r.member_id = ? "
-					+ "order by r.reservation_date"; 
+					+ "and r.reservation_date > sysdate order by r.reservation_date"; 
 			PreparedStatement psmt = con.prepareStatement(sql);
 			psmt.setString(1, id);
 			ResultSet rs = psmt.executeQuery();
