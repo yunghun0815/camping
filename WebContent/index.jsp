@@ -52,7 +52,7 @@
 			<img src="images/korea.jpg">
 		</div>
 	</section>
-	<%-- <%@ include file="common/footer.jsp"%> --%>
+	<%@ include file="common/footer.jsp"%>
 </body>
 </html>
 

@@ -27,6 +27,7 @@ public class WeatherService {
 	String baseDate = sdf.format(date);
 	
 	int hour = Integer.parseInt(sdf2.format(date));
+	String hourStr = null;
 	int min = Integer.parseInt(sdf3.format(date));
 	//서울 종로구, 성동구, 중구 좌표
 	String nx = "37"; 
@@ -38,6 +39,11 @@ public class WeatherService {
 		if(min < 40) {
 			hour --;
 		}
+		if(hour<10) {
+			hourStr = "0" + hour;
+		}else {
+			hourStr = String.valueOf(hour);
+		}
 		try {
 	        StringBuilder urlBuilder = new StringBuilder(apiUrl);
 	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+serviceKey);
@@ -46,14 +52,13 @@ public class WeatherService {
 	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode(pageNo, "UTF-8")); //경도
 	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode(numOfRows, "UTF-8")); //위도
 	        urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode(baseDate, "UTF-8")); /* 조회하고싶은 날짜*/
-	        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode(hour+"00", "UTF-8")); /* 조회하고싶은 기준시간 */
+	        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode(hourStr+"00", "UTF-8")); /* 조회하고싶은 기준시간 */
 	        urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" + URLEncoder.encode(dataType, "UTF-8"));	/* 타입 */
 			URL url = new URL(urlBuilder.toString());
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("GET");
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			System.out.println(url);
 			if (responseCode == 200) { 
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			} else { 

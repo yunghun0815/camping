@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(function(){
 		$(".delete").click(function(){
-			var check = confirm('정말로 삭제하시겠습니까?');
+			var check = confirm('정말로 취소하시겠습니까?');
 			if(check == true){
 				$("form").submit();
 				alert("취소가 완료되었습니다.");	
