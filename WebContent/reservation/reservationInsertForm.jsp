@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-       
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +37,7 @@
 					</tr>
 					<tr>
 						<td>가격</td>
-						<td>${camping.price}원</td>
+						<td><fmt:formatNumber value="${camping.price}"/>원</td>
 					</tr>
 					<tr>
 						<td colspan="2"><span class="reservationBtn" onclick="requestPay()">예약하기</span></td>
