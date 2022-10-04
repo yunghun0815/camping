@@ -1,65 +1,102 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>img{width: 20px;}</style>
+<style>
+img{
+	 width: 350px;
+	 margin-top: 10px;
+}
+table.cl {
+	width: 1300px;
+
+	border-right:none;
+	border-left: none;
+	border-top:none;
+	border-bottom:none;
+}
+.cl tr{
+	height: 200px;
+}
+.cl td{
+	width: 200px;
+	flex-direction: column;
+}
+.campingName{
+	margin-top: -15px;
+    margin-bottom: -13px;
+}
+#imgbox {
+	text-align: center;
+}
+#content{
+	width: 350px;
+    margin: 0 auto;
+}
+</style>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
-	<div style="height: 1000px; border: 1px solid black; ">
-		<H1>캠핑장 리스트</H1>
-		<table border=1>
-			<tr>
-				<th>번호</th>
-				<th>캠핑장 이름</th>
-				<th>정보</th>
-				<th>가격</th>
-				<th>주소</th>
-				<th>사진</th>
-			</tr>
-			
-			<c:forEach var="camp" items="${campList}">
-				<tr>
-					<td><a href="campingDetail.camping?campno=${camp.campingNo}">${camp.campingNo}</a></td>
-					<!--? 뒤에 파라미터 -->
-					<td>${camp.name}</td>
-					<td>${camp.info}</td>
-					<td>${camp.price}</td>
-					<td>${camp.address}</td>
-					<td><img class="campingImage" src="${camp.imgPath}${camp.imgName}"></td>
-					<%--vo에 있는 변수명--%>
-				</tr>
-			</c:forEach>
-			</table>
-			<table>
-				<c:if test="${campList.size()/5 < 1}">
+		<div border: 1px solid black;">
+			<table class="cl" align="center">
+				<c:if test="${campList.size()/3 <1}">
 					<tr>
-						<c:forEach items="${campList }" var="camp">
-							<span>${camp.name }</span>
+						<c:forEach items="${campList}" var="camp">
+							<td>
+								<div id="imgbox">
+									<a href="campingDetail.camping?campno=${camp.campingNo}">
+									<!--<img class="campingImage" src="${camp.imgPath}${camp.imgName}">  -->
+									<img src="images/1.png">
+									</a>
+								</div> <br>
+								<div id="content">
+									<h2 class="campingName">
+										${camp.name}
+									</h2><br>
+									${camp.address} <br>
+									<fmt:formatNumber value="${camp.price}" type="currency" var="price"/>
+									${price} <br>
+								</div>
+							</td>
 						</c:forEach>
 					</tr>
-				</c:if>	
-				<c:if test="${campList.size()/5 >=1 }">
-					<c:forEach begin="0" end="${campList.size() / 5}" var="i">
-						<c:if test="${campList[i*5] != null}"> 
-							<tr style="height: 200px;">
-								<c:forEach begin="${i * 5}" end="${(i+1) * 5 -1}" var="j">
-									<c:if test="${campList[j] != null}">
-										<td>이름 : ${campList[j].name}</td>
+				</c:if>
+				
+				<c:if test="${campList.size()/3 >=1}">
+					<c:forEach begin="0" end="${campList.size() / 3}" var="i">
+						<c:if test="${campList[i*3] !=null}">
+							<tr>
+								<c:forEach begin="${i*3}" end="${(i*3)+2}" var="j">
+									<c:if test="${campList[j] !=null}">
+										<td height ="50px">
+												<div id="imgbox">
+													<a href="campingDetail.camping?campno=${campList[j].campingNo}">
+										 			<img src="images/1.png">
+													</a>
+												</div><br>
+												<div id="content">
+												<h2 class="campingName">
+												${campList[j].name}
+												</h2> <br>
+												${campList[j].address} <br>
+												<fmt:formatNumber value="${campList[j].price}" type="currency" var="price"/>
+												${price} <br>
+												</div>
+										</td>
+										
 									</c:if>
-								</c:forEach>	
-							</tr>			
-						</c:if>	
+								</c:forEach>
+							</tr>
+						</c:if>
 					</c:forEach>
 				</c:if>
 			</table>
-		<a href="campingInsert.camping">캠핑장 등록</a>
-	</div>
 	</section>
 	<%@ include file="../common/footer.jsp"%>
 </body>

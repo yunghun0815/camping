@@ -109,27 +109,47 @@ public class CampingController extends HttpServlet {
             request.getRequestDispatcher("camping/campingInsertForm.jsp").forward(request, response);
          }
          
-      } else if("/campingUpdate.camping".equals(cmd)) {
-         String campingNo= request.getParameter("campingNo"); //" " ->JSP 뿉 input  깭洹  name媛  
-         String name = request.getParameter("name");
-         String info= request.getParameter("info");
-         String price= request.getParameter("price");
-         String address= request.getParameter("address");
-         String imgPath= request.getParameter("imgPath");
-         String imgName= request.getParameter("imgName");
+      }else if("/campingUpdate.camping".equals(cmd)) {
          
-         Camping camp = new Camping();
+         ServletContext application = request.getServletContext();
+         String saveDirectory = application.getRealPath("/Uploads/camping");
+         int maxPostSize = 1024*1000;
+         String encoding = "UTF-8";
          
-         camp.setCampingNo(Integer.parseInt(campingNo));
-         camp.setName(name);
-         camp.setInfo(info);
-         camp.setPrice(Integer.parseInt(price));
-         camp.setAddress(address);
-         camp.setImgPath(imgPath);
-         camp.setImgName(imgName);
-         
-         dao.updateCamping(camp);
-         response.sendRedirect("campingList.camping");
+         try {
+            MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding);
+            String realName = mr.getFilesystemName("attachedFile");
+            String ext = realName.substring(realName.indexOf("."));
+            String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
+            String imgName = now + ext;
+            
+            File oldFile = new File(saveDirectory + File.separator + realName);
+            File newFile = new File(saveDirectory + File.separator + imgName);
+            oldFile.renameTo(newFile);
+            
+            String campingNo= mr.getParameter("campingNo"); //" " ->JSP 뿉 input  깭洹  name媛  
+            String name = mr.getParameter("name");
+            String info= mr.getParameter("info");
+            String price= mr.getParameter("price");
+            String address= mr.getParameter("address");
+            
+            Camping camp = new Camping();
+            
+            camp.setCampingNo(Integer.parseInt(campingNo));
+            camp.setName(name);
+            camp.setInfo(info);
+            camp.setPrice(Integer.parseInt(price));
+            camp.setAddress(address);
+            camp.setImgPath("Uploads/camping/");
+            camp.setImgName(imgName);
+            
+            dao.updateCamping(camp);
+            response.sendRedirect("campingList.camping");
+         } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "파일업로드 실패");
+            request.getRequestDispatcher("camping/campingInsertForm.jsp").forward(request, response);
+         }
       } else if("/campingDelete.camping".equals(cmd)) {
          String campno = request.getParameter("campno");
          dao.deleteCamping(Integer.parseInt(campno));
