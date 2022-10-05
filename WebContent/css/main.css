@@ -18,7 +18,7 @@
 	    left: 10px
 	}
 	.mainBox2{
-		margin-top: 100px;
+		margin-top: 190px;
 	}
 	.mainBox2 div{
 		position: relative;
@@ -59,7 +59,7 @@
 		color: white;
 		font-size: 35px;
 		z-index: 1;
-	    bottom: -11px;
+        bottom: 15px;
 	    position: absolute;
 	    left: 20px;
 	}
@@ -82,9 +82,10 @@
 		position: absolute;
 	    font-weight: bold;
 	    display: inline-block;
-	    background-color: white;
 	    font-size: 13px;
 	    padding: 2px;
+	    font-size: 16px;
+	    color: white;
 	    border-radius: 6px;
 	}
 	.mainMap a:nth-child(2) /* 서울 */{
@@ -92,7 +93,7 @@
 		top: 250px;
 	}
 	.mainMap a:nth-child(3) /* 부산 */{
-	    left: 785px;
+	    left: 773px;
     	top: 578px;
 	}
 	.mainMap a:nth-child(4) /*인천*/{

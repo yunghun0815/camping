@@ -15,42 +15,42 @@
 <body>
 	<%@ include file="common/header.jsp"%>
 	<section class="main">
-		<div class="mainBox1">
-			<img src="images/main.png">
-		</div>
 		<div class="mainBox2 flex">
-	 		<div class="weatherBox">
-	 			<h1 class="boxTitle">오늘의 날씨</h1>
-				<span class="weatherTitle">서울특별시 종로구</span><br>
-				<img src="${weatherLink}"><br>
-				<span>${weather} / ${temperature} ℃</span>
-			</div> 
-			<div class="recommend">
-				<h1 class="boxTitle">추천 캠핑장</h1>
-				<img src="images/sample1.jpg">
-				<h2>세인트21 독채 온수풀빌라</h2>
-			</div>
+		 		<div class="weatherBox">
+		 			<h1 class="boxTitle">오늘의 날씨</h1>
+					<span class="weatherTitle">서울특별시 종로구</span><br>
+					<img src="${weatherLink}"><br>
+					<span>${weather} / ${temperature} ℃</span>
+				</div> 
+				<div class="recommend">
+					<h1 class="boxTitle">추천 캠핑장</h1>
+					<img src="images/sample1.jpg">
+					<h2>세인트21 독채 온수풀빌라</h2>
+				</div>
 		</div>
 		<div class="mainMap">
-			<h1 class="boxTitle">지역별 캠핑장 보기</h1>
-			<a class="seoul" href="campingList.camping?category=서울">서울</a>
-			<a href="campingList.camping?category=부산">부산</a>
-			<a href="campingList.camping?category=인천">인천</a>
-			<a href="campingList.camping?category=울산">울산</a>
-			<a href="campingList.camping?category=광주">광주</a>
-			<a href="campingList.camping?category=대전">대전</a>
-			<a href="campingList.camping?category=대구">대구</a>
-			<a href="campingList.camping?category=경기도">경기도</a>
-			<a href="campingList.camping?category=강원도">강원도</a>
-			<a href="campingList.camping?category=충청도">충청북도</a>
-			<a href="campingList.camping?category=충청도">충청남도</a>
-			<a href="campingList.camping?category=전라도">전라북도</a>
-			<a href="campingList.camping?category=전라도">전라남도</a>
-			<a href="campingList.camping?category=경상도">경상북도</a>
-			<a href="campingList.camping?category=경상도">경상남도</a>
-			<a href="campingList.camping?category=제주도">제주도</a>
-			<img src="images/korea.jpg">
-		</div>
+				<h1 class="boxTitle">지역별 캠핑장 보기</h1>
+				<a class="seoul" href="campingList.camping?category=서울">서울</a>
+				<a href="campingList.camping?category=부산">부산</a>
+				<a href="campingList.camping?category=인천">인천</a>
+				<a href="campingList.camping?category=울산">울산</a>
+				<a href="campingList.camping?category=광주">광주</a>
+				<a href="campingList.camping?category=대전">대전</a>
+				<a href="campingList.camping?category=대구">대구</a>
+				<a href="campingList.camping?category=경기도">경기도</a>
+				<a href="campingList.camping?category=강원도">강원도</a>
+				<a href="campingList.camping?category=충청도">충청북도</a>
+				<a href="campingList.camping?category=충청도">충청남도</a>
+				<a href="campingList.camping?category=전라도">전라북도</a>
+				<a href="campingList.camping?category=전라도">전라남도</a>
+				<a href="campingList.camping?category=경상도">경상북도</a>
+				<a href="campingList.camping?category=경상도">경상남도</a>
+				<a href="campingList.camping?category=제주도">제주도</a>
+				<img src="images/korea.jpg">
+			</div>
+			<!-- <div class="mainBox1">
+				<img src="images/main.png">
+			</div> -->
 	</section>
 	<%@ include file="common/footer.jsp"%>
 </body>

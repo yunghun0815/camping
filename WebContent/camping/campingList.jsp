@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <style>
-img{
+.cl img{
 	 width: 350px;
 	 margin-top: 10px;
 }
@@ -43,7 +43,6 @@ table.cl {
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
-		<div border: 1px solid black;">
 			<table class="cl" align="center">
 				<c:if test="${campList.size()/3 <1}">
 					<tr>
@@ -98,6 +97,9 @@ table.cl {
 				</c:if>
 			</table>
 	</section>
+	<c:if test="${campList.size() < 1}">
+		<h1 style="margin-bottom: 300px; text-align: center;">해당하는 캠핑장이 없습니다.</h1>
+	</c:if>
 	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

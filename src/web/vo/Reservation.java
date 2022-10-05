@@ -38,5 +38,10 @@ public class Reservation {
 	public void setPersonnel(int personnel) {
 		this.personnel = personnel;
 	}
+	@Override
+	public String toString() {
+		return "Reservation [reservationNo=" + reservationNo + ", campingNo=" + campingNo + ", memberId=" + memberId
+				+ ", reservationDate=" + reservationDate + ", personnel=" + personnel + "]";
+	}
 	
 }

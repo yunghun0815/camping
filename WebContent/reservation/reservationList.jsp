@@ -125,7 +125,7 @@
         <td class="calendar-day {{: dayclass }} {{: thedate.toDateCssClass() }} {{: date.toDateCssClass() === thedate.toDateCssClass() ? 'selected':'' }} {{: daycss[i] }} js-cal-option" data-date="{{: thedate.toISOString() }}">
           <div class="date">{{: thedate.getDate() }}</div>
 	      <input class="reservationDate" name="reservationDate" type="hidden" value="{{: dateFormat(thedate) }}">      
-	      <input class="campingNo" name="campingNo" type="hidden" value="1">   
+	      <input class="campingNo" name="campingNo" type="hidden" value="${campingNo}">   
 			<br>
 			<input class="reservationCheck" type="hidden" value={{: thedate > today}}>
 			{{ if (thedate > today) { var checkDate = false;}}
@@ -265,7 +265,12 @@ $.extend(Date.prototype, {
     	  var uri = "reservationInsert.res?reservationDate=" + reservationDate + "&campingNo=" + campingNo ;
     	  var checkRes = $(this).find('.checkDate').val();
     	  if(checkRes == 'true'){
-    	  	$(location).attr('href',uri);
+    		if("${id}" == null || "${id}" == ''){
+    			$(location).attr('href', 'login.member');
+    		}else{
+    			$(location).attr('href',uri);	
+    		}
+    	  	
     	  }
     	  
       }

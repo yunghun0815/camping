@@ -24,8 +24,15 @@
 	}
 	.loginform input[type="submit"]{
 		text-align: center;
-		cursor: pointer;
 		margin-top: 20px;
+		display: inline-block;
+		cursor: pointer;
+		background-color: #73A9AD;
+	    color: white;
+	    border: none;
+	    border-radius: 7px;
+        font-size: 15px;
+    	font-weight: bold;
 	}
 	.signUpBtn{
 	    background-color: rgb(255, 0, 85);
