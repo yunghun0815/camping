@@ -1,0 +1,62 @@
+@charset "EUC-KR";
+img{
+	 width: 350px;
+	 margin-top: 10px;
+}
+table.cl {
+	width: 1300px;
+	border-right:none;
+	border-left: none;
+	border-top:none;
+	border-bottom:none;
+}
+.cl tr{
+	height: 200px;
+}
+.cl td{
+	width: 200px;
+	flex-direction: column;
+}
+.campingName{
+	margin-top: -15px;
+    margin-bottom: -13px;
+}
+#imgbox {
+	text-align: center;
+}
+#content{
+	width: 350px;
+    margin: 0 auto;
+}
+.button{
+	text-align: right;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+.insertButton{
+background-color:#90c8ac;
+	border-radius:10px;
+	border:1px solid #90c8ac;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:21px;
+	font-weight:bold;
+	padding:8px 40px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #90c8ac;
+}
+.insertButton:hover {
+	background-color:#f5f0bb;
+}
+.insertButton:active {
+	position:relative;
+	top:1px;
+}
+.title{
+	margin-bottom: 0;
+ 	margin-left: 54px;
+ 	font-size: xxx-large;
+ 	
+}

@@ -8,42 +8,16 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<style>
-img{
-	 width: 350px;
-	 margin-top: 10px;
-}
-table.cl {
-	width: 1300px;
-
-	border-right:none;
-	border-left: none;
-	border-top:none;
-	border-bottom:none;
-}
-.cl tr{
-	height: 200px;
-}
-.cl td{
-	width: 200px;
-	flex-direction: column;
-}
-.campingName{
-	margin-top: -15px;
-    margin-bottom: -13px;
-}
-#imgbox {
-	text-align: center;
-}
-#content{
-	width: 350px;
-    margin: 0 auto;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/camping/campingList.css">
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
-		<div border: 1px solid black;">
+		<div>
+		<h1 class="title"> 캠핑장</h1>
+		<div class="button">
+			<a href="campingInsert.camping?campno=${camp.campingNo}"class="insertButton">등 록</a>
+		</div>
+		
 			<table class="cl" align="center">
 				<c:if test="${campList.size()/3 <1}">
 					<tr>

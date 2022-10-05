@@ -8,76 +8,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-.myButton {
-	box-shadow: inset 0px 1px 0px 0px #90c8ac;
-	background: linear-gradient(to bottom, #90c8ac 5%, #90c8ac 100%);
-	background-color: #90c8ac;
-	border-radius: 4px;
-	border: 1px solid #90c8ac;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 18px;
-	font-weight: bold;
-	padding: 6px 270px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #90c8ac;
-}
-
-.myButton:hover {
-	background: linear-gradient(to bottom, #90c8ac 5%, #90c8ac 100%);
-	background-color: #90c8ac;
-}
-
-.myButton:active {
-	position: relative;
-	top: 1px;
-}
- .font { 
-  font-size: xxx-large; 
-  margin-top: 20px;
-  margin-bottom: 20px;
-  }
-.box{
-	position: relative;
-}
-.box1 {
-    display: inline-block;
-}
-.box2 {
-    display: inline-block;
-    position: absolute;
-    top: 1px;
-    margin-left: 40px;
-    
-}
-.service{
-	margin-top: 10px;
-    margin-bottom: 10px;
-}
-.serviceList{
-	list-style: none;
-	float: left;
-	margin: auto;
-	margin-left: 20px;
-	align-items: center;
-	text-align : center;	
-}
-.line{
-    border-bottom: 0.2rem solid #f2f2f2;
-    width: 600px;
-}
-.box3{
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-.box4{
-	margin-top: 30px;
-	margin-bottom: 44px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/camping/campingDetail.css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".Button3").click(function(){
+			var check = confirm('정말로 삭제하시겠습니까?');
+			if(check == true){
+				$("form").submit();
+				alert("삭제가 완료되었습니다");
+			}
+		});
+	});
+</script>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
@@ -140,9 +83,22 @@
 						<div class="line"></div>
 						
 						<div class="box4">
-						<a href="reservationList.res?campingNo=${camp.campingNo}"class="myButton">예 약</a>
+						<a href="reservationList.res?campingNo=${camp.campingNo}"class="Button1">예 약</a>
 						</div>
-						
+						<c:if test="${id eq 'admin'}">
+							<div class="buttonBox">
+								<div class="box4">
+								<a href="campingUpdate.camping?campno=${camp.campingNo}"class="Button2">수 정</a>
+								</div>
+							
+								<div class="box4">
+								<form action="campingDelete.camping" method="post">
+									<input type="hidden" name="campno" value="${camp.campingNo}">
+									<span class="Button3">삭 제</span>
+								</form>
+								</div>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</c:if>

@@ -1,0 +1,117 @@
+@charset "EUC-KR";
+
+.Button1 {
+background-color:#90c8ac;
+	border-radius:10px;
+	border:1px solid #90c8ac;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:21px;
+	font-weight:bold;
+	padding:11px 275px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #90c8ac;
+}
+.Button1:hover {
+	background-color:#f5f0bb;
+}
+.Button1:active {
+	position:relative;
+	top:1px;
+}
+
+.Button2 {
+	background-color:#c3dfaa;
+	border-radius:10px;
+	border:1px solid #c3dfaa;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:21px;
+	font-weight:bold;
+	padding:11px 123px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c3dfaa;
+}
+
+.Button2:hover {
+	background-color:#f5f0bb;
+}
+.Button2:active {
+	position:relative;
+	top:1px;
+}
+
+.Button3 {
+	background-color:#f5f0bb;
+	border-radius:10px;
+	border:1px solid #f5f0bb;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:21px;
+	font-weight:bold;
+	padding:11px 123px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #f5f0bb;
+}
+
+.Button3:hover {
+	background-color: #c3dfaa;
+}
+.Button3:active {
+	position:relative;
+	top:1px;
+}
+ .font { 
+  font-size: xxx-large; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+.box{
+	position: relative;
+}
+.box1 {
+    display: inline-block;
+}
+.box2 {
+    display: inline-block;
+    position: absolute;
+    top: 1px;
+    margin-left: 40px;
+    
+}
+.service{
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+.serviceList{
+	list-style: none;
+	float: left;
+	margin: auto;
+	margin-left: 20px;
+	align-items: center;
+	text-align : center;	
+}
+.line{
+    border-bottom: 0.2rem solid #f2f2f2;
+    width: 600px;
+}
+.box3{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.box4{
+	margin-top: 30px;
+	margin-bottom: -12px;
+	display :inline-block;
+}
+.buttonBox{
+	text-align: center;
+	position: relative;
+	right: 6px;
+}
