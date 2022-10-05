@@ -15,6 +15,7 @@
 }
 .imgContainer img{
 	width: 550px;
+	padding-right: 30px;
 }
 .productTotal {
 	margin: auto;
