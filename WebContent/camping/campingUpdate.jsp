@@ -39,8 +39,8 @@
 				<th>첨부파일</th>
 				<td>
 					<input type="file" name="attachedFile" 
-					 value="${camp.imgPath}${camp.imgName}" class="input">
-					<img src="../${camp.imgPath}${camp.imgName}">
+					 value="${camp.imgName}" class="input">
+					<img src="${camp.imgPath}${camp.imgName}"  style="width: 300px;">
 				</td>
 			</tr>
 		</table>

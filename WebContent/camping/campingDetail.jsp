@@ -46,27 +46,27 @@
 							<div style="margin-left: -48px">
 								<ul>
 									<li class="serviceList">
-										<img src="images/주차.png"><br>
+										<img src="images/camping/1.png"><br>
 										<div>주차가능</div>
 									</li>
 									<li class="serviceList">
-										<img src="images/수영장.png"> 
+										<img src="images/camping/2.png"> 
 										<div>수영장</div>
 									</li>
 									<li class="serviceList">
-										<img src="images/와이파이.png"> 
+										<img src="images/camping/3.png"> 
 										<div>와이파이</div>
 									</li>
 									<li class="serviceList">
-										<img src="images/바베큐.png"> 
+										<img src="images/camping/4.png"> 
 										<div>바베큐</div>
 									</li>
 									<li class="serviceList">
-										<img src="images/매점.png"> 
+										<img src="images/camping/5.png"> 
 										<div>매점</div>
 									</li>
 									<li class="serviceList">
-										<img src="images/글램핑.png"> 
+										<img src="images/camping/6.png"> 
 										<div>글램핑</div>
 									</li>
 								</ul>

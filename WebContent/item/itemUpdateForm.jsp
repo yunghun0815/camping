@@ -37,8 +37,9 @@
 					<th>사진</th>
 					<td><input type="hidden" name="realName"
 						value="${item.imgName}"> <input type="file"
-						name="attacheFile" required="required"><img
-						src="${item.imgPath}${item.imgName}"></td>
+						name="attacheFile" required="required">
+						<img src="${item.imgPath}${item.imgName}" style="width: 300px;">
+					</td>
 				</tr>
 				<tr>
 					<!-- <th>카테고리</th> -->
