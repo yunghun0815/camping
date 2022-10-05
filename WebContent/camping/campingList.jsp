@@ -55,7 +55,7 @@
 										<td height ="50px">
 												<div id="imgbox">
 													<a href="campingDetail.camping?campno=${campList[j].campingNo}">
-										 			<img src="images/1.png">
+										 			<img src="${camp.imgPath}${camp.imgName }">
 													</a>
 												</div><br>
 												<div id="content">

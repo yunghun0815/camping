@@ -9,7 +9,7 @@
 	<div>
 		<ul class="flex">
 			<li>
-				<a href="<%= cv %>"><img class="logo" src="<%= cv %>/images/common/logo.png"></a>
+				<a href="index.do"><img class="logo" src="<%= cv %>/images/common/logo.png"></a>
 			</li>
 			<li class="header-menu flex">
 				<div>
