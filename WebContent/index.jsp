@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<head>
+<head>`
 <meta charset="UTF-8">
 <title>camping shop</title>
 </head>

@@ -8,6 +8,7 @@ public class Item {
 	private String info;
 	private String imgPath;
 	private String imgName;
+	private String category;
 	
 	
 	public int getItemNo() {
@@ -47,17 +48,22 @@ public class Item {
 		this.imgName = imgName;
 	}
 	
-	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public Item() {
 		super();
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Item [itemNo=" + itemNo + ", name=" + name + ", price=" + price + ", info=" + info + ", imgPath="
-				+ imgPath + ", imgName=" + imgName + "]";
+				+ imgPath + ", imgName=" + imgName + ", category=" + category + "]";
 	}
+	
+	
 
 	
 	

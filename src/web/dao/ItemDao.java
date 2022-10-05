@@ -63,7 +63,7 @@ public class ItemDao {
 
 		try {
 			con = dataSource.getConnection();
-			String sql = "select item_no, name, price, info, img_path, img_name "
+			String sql = "select item_no, name, price, info, img_path, img_name, category "
 					+"from item "
 					+"where item_no=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -77,6 +77,7 @@ public class ItemDao {
 				item.setInfo(rs.getString("info"));
 				item.setImgPath(rs.getString("img_path"));
 				item.setImgName(rs.getString("img_name"));
+				item.setCategory(rs.getString("category"));
 			}else {
 				item = null;
 			}
@@ -93,14 +94,15 @@ public class ItemDao {
 		Connection con = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "insert into item (item_no, name, price, info, img_path, img_name) "
-					+ "values(item_no.nextval, ?, ?, ?, ?, ?)";
+			String sql = "insert into item (item_no, name, price, info, img_path, img_name, category) "
+					+ "values(item_no.nextval, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, item.getName());
 			stmt.setInt(2, item.getPrice());
 			stmt.setString(3, item.getInfo());
 			stmt.setString(4, item.getImgPath());
 			stmt.setString(5, item.getImgName());
+			stmt.setString(6, item.getCategory());
 
 			stmt.executeUpdate();
 			System.out.println("데이터가 입력되었습니다.");
@@ -117,8 +119,8 @@ public class ItemDao {
 		Connection con = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "update item set item_no=item_no.nextval, name=?, price=?, info=?, "
-					+ "img_path=?, img_name=? "
+			String sql = "update item set name=?, price=?, info=?, "
+					+ "img_path=?, img_name=?, category=? "
 					+ "where item_no=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, item.getName());
@@ -126,14 +128,17 @@ public class ItemDao {
 			stmt.setString(3, item.getInfo());		
 			stmt.setString(4, item.getImgPath());
 			stmt.setString(5, item.getImgName());
-			stmt.setInt(6, item.getItemNo());
+			stmt.setString(6, item.getCategory());
+			stmt.setInt(7, item.getItemNo());
 
 			stmt.executeUpdate();
 			System.out.println("데이터가 수정되었습니다.");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
-		}if(con != null) try { con.close(); }catch (Exception e) {
-			e.printStackTrace();
+		}finally {
+			if (con != null) try { con.close(); } catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}//장비 수정
 	public void deleteItem (int itemNo) {
@@ -145,10 +150,69 @@ public class ItemDao {
 			stmt.setInt(1, itemNo);
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			if (con !=null) try { con.close(); } catch (Exception e2) {
+			throw new RuntimeException(e);
+		}finally {
+			if (con != null) try { con.close(); } catch (Exception e) {
 				e.printStackTrace();
 			}
-			e.printStackTrace();
 		}
-	}
+	}//장비 삭제
+	public List<Item> getCategoryList(String category) {
+		List<Item> categoryList = new ArrayList<>();
+		Connection con = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "select item_no, name, price, info, img_path, img_name, category "+ 
+					"from item "+ 
+					"where category =?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, category);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Item item = new Item();
+				item.setItemNo(rs.getInt("item_no"));
+				item.setName(rs.getString("name"));
+				item.setPrice(rs.getInt("price"));
+				item.setInfo(rs.getString("info"));
+				item.setImgPath(rs.getString("img_path"));
+				item.setImgName(rs.getString("img_name"));
+				item.setCategory(rs.getString("category"));
+
+				categoryList.add(item);
+				System.out.println("dao카테고리 확인" + categoryList);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}finally {
+			if (con != null) try { con.close(); } catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return categoryList;
+	}//카테고리 별 조회
+	public void exceptionUpdate(Item item) {
+		Connection con = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "update item set name=?, "
+					+ "price = ?, info=?, category=? "
+					+ "where item_no=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, item.getName());
+			stmt.setInt(2, item.getPrice());
+			stmt.setString(3, item.getInfo());
+			stmt.setString(4, item.getCategory());
+			stmt.setInt(5, item.getItemNo());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}finally {
+			if(con!=null) try {con.close();} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}//예외 수정
+	
+	
 } //클래스

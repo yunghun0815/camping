@@ -4,10 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<style>
+	.campingImage{
+		width: 20px;
+	}
+</style>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
 	<div style="height: 1000px; border: 1px solid black; ">
@@ -19,8 +24,7 @@
 				<th>정보</th>
 				<th>가격</th>
 				<th>주소</th>
-				<th>사진 경로</th>
-				<th>사진 이름</th>
+				<th>사진</th>
 			</tr>
 			
 			<c:forEach var="camp" items="${campList}">
@@ -31,8 +35,7 @@
 					<td>${camp.info}</td>
 					<td>${camp.price}</td>
 					<td>${camp.address}</td>
-					<td>${camp.imgPath}</td>
-					<td>${camp.imgName}</td>
+					<td><img class="campingImage" src="${camp.imgPath}${camp.imgName}"></td>
 					<%--vo에 있는 변수명--%>
 				</tr>
 			</c:forEach>

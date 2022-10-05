@@ -1,33 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1> д╥гнюЕ ╩С╪╪ а╓╨╦</h1>
+<h1> Л╨═М∙▒Л·╔ Л┐│Л└╦ Л═∙КЁ╢</h1>
 <c:if test="${not empty camp}">
-д╥гнюЕ ╧Ьхё : ${camp.campingNo}<br>
-юл╦╖: ${camp.name} <br>
-а╓╨╦: ${camp.info} <br>
-╟║╟щ: ${camp.price} <br>
-аж╪р: ${camp.address} <br>
-юл╧лаЖ ╟Ф╥н: ${camp.imgPath} <br>
-юл╧лаЖ юл╦╖: ${camp.imgName } <br>
+Л╨═М∙▒Л·╔ К╡┬М≤╦ : ${camp.campingNo}<br>
+Л²╢К╕└: ${camp.name} <br>
+Л═∙КЁ╢: ${camp.info} <br>
+Й╟─Й╡╘: ${camp.price} <br>
+Лё╪Л├▄: ${camp.address} <br>
+Л┌╛Л╖└ : <img src="${camp.imgPath}${camp.imgName}">
 
-<a href = "campingUpdate.camping?campno=${camp.campingNo}">╪Жа╓</a>
+<a href = "campingUpdate.camping?campno=${camp.campingNo}">Л┬≤Л═∙</a>
 
 <form action="campingDelete.camping" method="post"> 
 <input type="hidden" name="campno" value="${camp.campingNo}">
-<input type="submit" value="╩Ха╕">
+<input type="submit" value="Л┌╜Л═°">
 </form>
 </c:if>
 
 <c:if test="${empty camp.campingNo}">
-д╥гн а╓╨╦╟║ ╬Ь╫ю╢о╢ы.
+Л╨═М∙▒ Л═∙КЁ╢Й╟─ Л≈├Л┼╣К▀┬К▀╓.
 </c:if>
 
 </body>

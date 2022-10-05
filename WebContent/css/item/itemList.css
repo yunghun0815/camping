@@ -1,0 +1,119 @@
+.itemImage {
+	width: 20px;
+}
+
+.serv_list {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.serv_list .container {
+	max-width: 1100px;
+	margin: auto;
+}
+
+.serv_list .container .title ul {
+	padding-left: 0;
+	list-style: none;
+}
+
+.serv_list .container .title ul li {
+	display: inline; /*ul의 li를 가로로 정렬 */
+	margin-right: 30px;
+}
+
+.serv_list .container .title ul li a {
+	text-decoration: none;
+	color: #444;
+}
+
+.serv_list .container .item_list {
+	display: flex;
+	flex-wrap: wrap; /*상위 요소의 너비보다 하위 요소의 너비가 더 클 경우 줄바꿈*/
+}
+
+.serv_list .container .item_list .card {
+	border: 1px solid #eee;
+	border-radius: 5px;
+	height: 350px;
+	width: 262px;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-left: 13px;
+}
+
+.serv_list .container .item_list .card img {
+	height: 200px;
+	width: 250px;
+}
+
+.serv_list .container .item_list .card .text p {
+	font-size: 14px;
+	opacity: 8;
+}
+
+.serv_list .container .item_list .card .text button {
+	background: black;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 10px;
+	transition: .5s ease;
+}
+
+.card h3 {
+	font-size: 14px;
+	line-height: 1.38;
+	letter-spacing: -.2px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	max-height: 38px;
+}
+
+.card {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	widows: 1;
+}
+
+.itemInfo {
+	display: block;
+	display: -webkit-box;
+	padding: 12px 0 0;
+	font-size: 12px;
+	color: #111;
+	font-weight: 400;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 8px;
+	-webkit-line-clamp: 3;
+}
+
+.card {
+	display: inline-block;
+	float: left;
+}
+
+.insert_btn {
+	margin-left: 995px;
+	background-color:#90c8ac;
+	border-radius:10px;
+	border:1px solid #90c8ac;
+	color:#ffffff;
+	font-family:Arial;
+   font-size:18px;
+   font-weight:bold;
+    padding:5px 8px;
+     text-shadow:0px 1px 0px #90c8ac;
+}
