@@ -13,6 +13,9 @@
 	height: 550px;
 	float: left;
 }
+.imgContainer img{
+	width: 550px;
+}
 .productTotal {
 	margin: auto;
 	width: 100%;

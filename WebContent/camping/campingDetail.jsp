@@ -28,8 +28,7 @@
 			<c:if test="${not empty camp}">
 				<div class="box">
 					<div class="box1">
-						<!--<img src="${camp.imgPath}${camp.imgName}">  -->
-						<img src="images/1.png" width="650px" height="650px">
+						<img src="${camp.imgPath}${camp.imgName}"  width="650px" height="650px"> 
 					</div>
 					
 					<div class="box2">

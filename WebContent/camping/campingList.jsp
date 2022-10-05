@@ -30,8 +30,7 @@
 							<td>
 								<div id="imgbox">
 									<a href="campingDetail.camping?campno=${camp.campingNo}">
-									<!--<img class="campingImage" src="${camp.imgPath}${camp.imgName}">  -->
-									<img src="images/1.png">
+									<img src="${camp.imgPath}${camp.imgName }">
 									</a>
 								</div> <br>
 								<div id="content">
