@@ -133,6 +133,7 @@ public class CampingController extends HttpServlet {
             String info= mr.getParameter("info");
             String price= mr.getParameter("price");
             String address= mr.getParameter("address");
+            String category = mr.getParameter("category");
             
             Camping camp = new Camping();
             
@@ -143,7 +144,7 @@ public class CampingController extends HttpServlet {
             camp.setAddress(address);
             camp.setImgPath("Uploads/camping/");
             camp.setImgName(imgName);
-            
+            camp.setCategory(category);
             dao.updateCamping(camp);
             response.sendRedirect("campingList.camping");
          } catch (Exception e) {

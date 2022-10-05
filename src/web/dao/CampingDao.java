@@ -41,8 +41,8 @@ public class CampingDao {
 				camp.setInfo(rs.getString("info"));
 				camp.setPrice(rs.getInt("price"));
 				camp.setAddress(rs.getString("address"));
-				//camp.setImgPath(rs.getString("img_path"));
-				//camp.setImgName(rs.getString("img_name")); //" " -> 테이블 컬럼명
+				camp.setImgPath(rs.getString("img_path"));
+				camp.setImgName(rs.getString("img_name")); //" " -> 테이블 컬럼명
 				
 				campList.add(camp);
 			}
@@ -113,7 +113,7 @@ public class CampingDao {
 		try {
 			con = dataSource.getConnection();
 			String sql = "update camping set name=? , info=? , price=?, "
-					+ "address=? , img_path=? , img_name=? "
+					+ "address=? , img_path=? , img_name=?, category = ?"
 					+ "where camping_no=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, camp.getName());
@@ -122,7 +122,8 @@ public class CampingDao {
 			stmt.setString(4, camp.getAddress());
 			stmt.setString(5, camp.getImgPath());
 			stmt.setString(6, camp.getImgName());
-			stmt.setInt(7, camp.getCampingNo());
+			stmt.setString(7, camp.getCategory());
+			stmt.setInt(8, camp.getCampingNo());
 			stmt.executeUpdate();
 		}catch(SQLException e) {
 			throw new RuntimeException(e);
