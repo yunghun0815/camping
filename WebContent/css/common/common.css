@@ -2,6 +2,7 @@
 
 	*{
 		box-sizing: border-box;
+		margin: 0;
 	}
 	ul, ol, li{
 		list-style: none;
@@ -22,7 +23,10 @@
 	header{
 		margin-bottom: 100px;
 		border-bottom: 1px solid #ddd;
-		height: 80px;
+		height: 100px;
+		padding-top: 10px;
+		/* background-color: #C4DFAA; */
+		background-color: #90C8AC;
 	}
 	header>div{
 		width: 1400px;
@@ -43,6 +47,7 @@
     	left: 1230px;
 	    color:#222222;
     	font-weight: bold;
+    	line-height: 75px;
 	}
 	header>div ul li:last-child a:first-child{
 		margin-right: 20px;
@@ -50,6 +55,10 @@
 	header .header-menu{
 		position: relative;
     	left: 200px;
+	}
+	header>div ul li:first-child img{
+	    position: relative;
+    	bottom: 40px;	
 	}
 	header .header-menu>div{
 		display: inline-block;
@@ -60,18 +69,22 @@
 		width: 30px;
 	    margin-top: 8px;
 	}
+	header a{
+		color: white;
+	}
 	header .header-menu div a:first-child{
 		display: block;
 		height: 25px;
 	}
 	header .header-menu div a:last-child{
-    	color: #333;
+    	color: white;
     	font-weight: bold;
 	}
 	footer{
 		margin-top: 100px;
 		border-top: 1px solid #ddd;
 		padding-top: 50px;
+		background: rgb(245,245,245);
 	}
 	footer>section{
 		width: 1400px;

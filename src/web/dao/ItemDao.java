@@ -150,3 +150,5 @@ public class ItemDao {
 		}
 	}
 } //Ŭ����
+// List<Item> getCategoryList(String category)
+// void exceptionUpdate(Item item)
