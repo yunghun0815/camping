@@ -1,0 +1,154 @@
+@charset "UTF-8";
+	/* box별 타이틀 */
+	.main div{
+		border-radius: 15px;
+	}
+	.mainBox{
+		margin-top: -30px;
+		margin-bottom: 60px;
+	}
+	.mainBox1 img{
+		width: 1300px;
+		border-radius: 15px;
+	}
+	
+	.boxTitle{
+	    position: absolute;
+	    top: -65px;
+	    left: 10px
+	}
+	.mainBox2{
+		margin-top: 190px;
+	}
+	.mainBox2 div{
+		position: relative;
+	}
+	/* 날씨 */
+	.weatherBox{
+		text-align: center;
+		border: 1px solid rgba(0,0,0,0.08);
+		width: 500px;
+		height: 350px;
+	}
+	.weatherBox .weatherTitle{
+		font-weight: bold;
+	    display: inline-block;
+	    margin-top: 40px;
+	    margin-bottom: 10px;
+	}
+	.weatherBox img{
+		width: 180px;
+	}
+	.weatherBox span:last-child{
+	    font-size: 20px;
+    	font-weight: bold;
+	}
+	/* 추천 */
+	.recommend{
+		margin-left: 30px;
+		border: 1px solid rgba(0,0,0,0.08);
+		width: 770px;
+		height: 350px;
+	}
+	.recommend img{
+		width: 100%;
+	    height: 100%;
+	    border-radius: 15px;
+	}
+	.recommend h2{
+		color: white;
+		font-size: 35px;
+		z-index: 1;
+        bottom: 15px;
+	    position: absolute;
+	    left: 20px;
+	}
+	/* 메인 지도 */
+	.mainMap{
+		text-align: center;
+		position: relative;
+		border: 1px solid rgba(0,0,0,0.08);
+		height: 900px;
+	    margin-top: 100px;
+	}
+	.mainMap img{
+		width: 700px;
+	    position: absolute;
+	    right: 300px;
+	    bottom: -60px;
+	    z-index: -1;
+	}
+	.mainMap a{
+		position: absolute;
+	    font-weight: bold;
+	    display: inline-block;
+	    font-size: 13px;
+	    padding: 2px;
+	    font-size: 16px;
+	    color: white;
+	    border-radius: 6px;
+	}
+	.mainMap a:nth-child(2) /* 서울 */{
+		left: 549px;
+		top: 250px;
+	}
+	.mainMap a:nth-child(3) /* 부산 */{
+	    left: 773px;
+    	top: 578px;
+	}
+	.mainMap a:nth-child(4) /*인천*/{
+	    left: 483px;
+    	top: 241px;
+	}
+	.mainMap a:nth-child(5) /*울산*/{
+      	left: 806px;
+    	top: 525px;
+	}
+	.mainMap a:nth-child(6) /*광주*/{
+        left: 539px;
+    	top: 605px;
+	}
+	.mainMap a:nth-child(7) /*대전*/{
+	    left: 591px;
+    	top: 418px;
+	}
+	.mainMap a:nth-child(8) /*대구*/{
+        top: 480px;
+   	 	left: 730px;
+	}
+	.mainMap a:nth-child(9) /*경기도*/{
+	    left: 576px;
+    	top: 286px;
+	}
+	.mainMap a:nth-child(10) /*강원도*/{
+	    left: 696px;
+    	top: 225px;
+	}
+	.mainMap a:nth-child(11) /*충청북도*/{
+        left: 619px;
+   		top: 354px;
+	}
+	.mainMap a:nth-child(12) /*충청남도*/{
+	  	left: 518px;
+   		top: 383px;
+	}
+	.mainMap a:nth-child(13) /*전라북도*/{
+        left: 549px;
+    	top: 496px;
+	}
+	.mainMap a:nth-child(14) /*전라남도*/{
+        left: 497px;
+   		top: 644px;
+	}
+	.mainMap a:nth-child(15) /*경상북도*/{
+        left: 734px;
+    	top: 403px;
+	}
+	.mainMap a:nth-child(16) /*경상남도*/{
+	    left: 677px;
+   		top: 557px;
+	}
+	.mainMap a:nth-child(17) /*제주도*/{
+	    top: 761px;
+    	left: 492px;
+	}

@@ -24,7 +24,7 @@ public class ItemDao {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
-	} //¼­¹ö ¿¬°á
+	} //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	public List<Item> getItemList() {
 		List<Item> itemList = new ArrayList<>();
@@ -55,7 +55,7 @@ public class ItemDao {
 			}
 		}
 		return itemList;
-	} //Àåºñ Á¶È¸
+	} //ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 
 	public Item detailItem(int itemNo) {
 		Connection con = null;
@@ -88,7 +88,7 @@ public class ItemDao {
 			}
 		}
 		return item;
-	}//Àåºñ»ó¼¼ Á¶È¸
+	}//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public void insertItem(Item item) {
 		Connection con = null;
 		try {
@@ -103,7 +103,6 @@ public class ItemDao {
 			stmt.setString(5, item.getImgName());
 
 			stmt.executeUpdate();
-			System.out.println("µ¥ÀÌÅÍ°¡ ÀÔ·ÂµÇ¾ú½À´Ï´Ù.");
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -112,7 +111,7 @@ public class ItemDao {
 				e.printStackTrace();
 			}
 		}
-	}//Àåºñ µî·Ï
+	}//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public void updateItem(Item item) {
 		Connection con = null;
 		try {
@@ -129,13 +128,12 @@ public class ItemDao {
 			stmt.setInt(6, item.getItemNo());
 
 			stmt.executeUpdate();
-			System.out.println("µ¥ÀÌÅÍ°¡ ¼öÁ¤µÇ¾ú½À´Ï´Ù.");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}if(con != null) try { con.close(); }catch (Exception e) {
 			e.printStackTrace();
 		}
-	}//Àåºñ ¼öÁ¤
+	}//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void deleteItem (int itemNo) {
 		Connection con = null;
 		try {
@@ -151,4 +149,6 @@ public class ItemDao {
 			e.printStackTrace();
 		}
 	}
-} //Å¬·¡½º
+} //Å¬ï¿½ï¿½ï¿½ï¿½
+// List<Item> getCategoryList(String category)
+// void exceptionUpdate(Item item)

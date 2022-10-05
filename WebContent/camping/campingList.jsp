@@ -5,19 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/camping/campingList.css">
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
-		<div>
 		<h1 class="title"> 캠핑장</h1>
 		<div class="button">
 			<a href="campingInsert.camping?campno=${camp.campingNo}"class="insertButton">등 록</a>
 		</div>
-		
 			<table class="cl" align="center">
 				<c:if test="${campList.size()/3 <1}">
 					<tr>
@@ -70,10 +68,11 @@
 						</c:if>
 					</c:forEach>
 				</c:if>
-				
 			</table>
-		</div>
 	</section>
+	<c:if test="${campList.size() < 1}">
+		<h1 style="margin-bottom: 300px; text-align: center;">해당하는 캠핑장이 없습니다.</h1>
+	</c:if>
 	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

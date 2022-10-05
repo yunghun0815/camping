@@ -29,9 +29,14 @@ public class CampingController extends HttpServlet {
       
       String uri = request.getRequestURI();
       String cmd = uri.substring(uri.lastIndexOf('/'));
-      String view ="/index.jsp"; //
+      String view ="/index.do"; //
       if("/campingList.camping".equals(cmd)) {
-         request.setAttribute("campList", dao.getCampingList());
+    	 String category = request.getParameter("category");
+    	 if(category == null) {
+    		 request.setAttribute("campList", dao.getCampingList());
+    	 }else {
+    		 request.setAttribute("campList", dao.getCampingCateList(category));
+    	 }
          view = "/camping/campingList.jsp";
          
       } else if("/campingDetail.camping".equals(cmd)) {
@@ -83,6 +88,7 @@ public class CampingController extends HttpServlet {
             String info= mr.getParameter("info");
             String price= mr.getParameter("price");
             String address= mr.getParameter("address");
+            String category = mr.getParameter("category");
             
             Camping camp = new Camping();
             
@@ -92,6 +98,7 @@ public class CampingController extends HttpServlet {
             camp.setAddress(address);
             camp.setImgPath("Uploads/camping/");
             camp.setImgName(imgName);
+            camp.setCategory(category);
             
             dao.insertCamping(camp);
             response.sendRedirect("campingList.camping");
@@ -102,7 +109,7 @@ public class CampingController extends HttpServlet {
             request.getRequestDispatcher("camping/campingInsertForm.jsp").forward(request, response);
          }
          
-      } else if("/campingUpdate.camping".equals(cmd)) {
+      }else if("/campingUpdate.camping".equals(cmd)) {
          
          ServletContext application = request.getServletContext();
          String saveDirectory = application.getRealPath("/Uploads/camping");
@@ -143,7 +150,6 @@ public class CampingController extends HttpServlet {
             request.setAttribute("errorMessage", "파일업로드 실패");
             request.getRequestDispatcher("camping/campingInsertForm.jsp").forward(request, response);
          }
-         
       } else if("/campingDelete.camping".equals(cmd)) {
          String campno = request.getParameter("campno");
          dao.deleteCamping(Integer.parseInt(campno));

@@ -1,0 +1,75 @@
+	.loginform h1{
+		text-align: center;
+		margin-top: 180px;
+	}
+	.loginform{
+		width: 310px;
+		margin: 0 auto 250px;	
+	}
+	.loginform form{
+		margin-top: 70px;
+	}
+	.loginform input{
+		width: 300px;
+		height: 50px;
+		border: 1px solid #eee;
+    	border-radius: 5px;
+    	padding-left: 10px;
+	}
+	.loginform p{
+	    margin-bottom: 9px;
+	    font-size: 16px;
+	    font-weight: bold;
+	    color: rgba(0,0,0,0.56);
+	}
+	.loginform input[type="submit"]{
+		text-align: center;
+		margin-top: 20px;
+		display: inline-block;
+		cursor: pointer;
+		background-color: #73A9AD;
+	    color: white;
+	    border: none;
+	    border-radius: 7px;
+        font-size: 15px;
+    	font-weight: bold;
+	}
+	.signUpBtn{
+	    background-color: rgb(255, 0, 85);
+		color: white;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	.fail{
+		background-color: gray !important;
+		color: white !important;
+		font-weight: bold !important;
+		cursor: pointer !important;
+	}
+	
+	#loginId{
+		width: 200px;
+		margin-right: 10px;
+	}
+	.loginform #checkButton{
+	    height: 50px;
+	    border: none;
+	    color: dimgray;
+	    border-radius: 8px;
+	    font-weight: bold;
+	    width: 90px;
+	    position: relative;
+	    top: 1px;
+	    cursor: pointer;
+	}
+	.loginId{
+		width: 300px !important;
+	}
+	.loginPw{
+		margin: 50px 0;	
+	}
+	.checkButtonColor{
+		background-color: #808080;
+	    color: white;
+    }
+    
