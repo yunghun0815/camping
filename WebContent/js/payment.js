@@ -14,7 +14,7 @@
 	          pay_method: "card",
 	          merchant_uid: no+'-camping-'+date, //코드
 	          name: name, //상품명
-	          amount: 100, //가격 price
+	          amount: price, //가격 price
 	          buyer_email: "test@test.com", //이메일
 	          buyer_name: id, //이름
 	          buyer_tel: "010-7777-7777", //전화번호
@@ -24,6 +24,7 @@
 	          if (rsp.success) {
 	             $("form").submit();
 	          } else {
+	        	  console.log(rsp);
 	              alert("결제 실패");
 	          }
 	      });

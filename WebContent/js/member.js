@@ -30,6 +30,7 @@ $(function(){
 								$("#returnId").attr("value", $("#loginId").val());
 								$("#checkButton").attr("disabled", "disabled");
 								$("#checkButton").addClass("fail");
+								$("#checkButton").text("확인완료");
 								idDBCheck = true;
 								valCheck();
 							}

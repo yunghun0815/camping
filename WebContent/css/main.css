@@ -88,6 +88,9 @@
 	    color: white;
 	    border-radius: 6px;
 	}
+	.mainMap a:hover{
+		    color: rosybrown;
+	}
 	.mainMap a:nth-child(2) /* 서울 */{
 		left: 549px;
 		top: 250px;

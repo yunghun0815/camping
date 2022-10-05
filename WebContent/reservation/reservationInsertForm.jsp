@@ -22,6 +22,7 @@
 				<input id="no" type="hidden" name="campingNo" value="${campingNo}">
 				<input id="id" type="hidden" name="memberId" value="${id}">
 				<input type="hidden" name="reservationDate" value="${reservationDate}">
+				<input id="price" type="hidden" value="${camping.price}">
 				<input id="name" type="hidden" value="${camping.name}">
 				<table>
 					<tr>
@@ -41,7 +42,7 @@
 						<td><fmt:formatNumber value="${camping.price}"/>원</td>
 					</tr>
 					<tr>
-						<td colspan="2"><span class="reservationBtn" onclick="requestPay2()">예약하기</span></td>
+						<td colspan="2"><span class="reservationBtn" onclick="requestPay()">예약하기</span></td>
 					</tr>
 				</table>
 				<!-- <input type="submit" value="예약하기"> -->

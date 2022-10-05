@@ -78,7 +78,6 @@ public class MemberController extends HttpServlet {
 				view = "index.do";
 			}else { //이름이 없으면 로그인페이지로 이동
 				session.setAttribute("loginCheck", "fail");
-				System.out.println("로그인실패");
 				view = "login.member";
 			}
 		}else if("/logout.member".equals(path)) { //로그아웃 처리

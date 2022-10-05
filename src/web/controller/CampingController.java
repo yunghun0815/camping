@@ -35,6 +35,7 @@ public class CampingController extends HttpServlet {
     	 if(category == null) {
     		 request.setAttribute("campList", dao.getCampingList());
     	 }else {
+    		 request.setAttribute("category", category);
     		 request.setAttribute("campList", dao.getCampingCateList(category));
     	 }
          view = "/camping/campingList.jsp";

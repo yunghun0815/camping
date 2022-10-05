@@ -10,11 +10,18 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/camping/campingList.css">
 <body>
+<style>
+	.campingImage{
+		width: 20px;
+	}
+</style>
 	<%@ include file="../common/header.jsp"%>
 	<section class="main">
-		<h1 class="title"> 캠핑장</h1>
+		<h1 class="title"><c:if test="${not empty category}">${category }</c:if> 캠핑장</h1>
 		<div class="button">
-			<a href="campingInsert.camping?campno=${camp.campingNo}"class="insertButton">등 록</a>
+			<c:if test="${id eq 'admin'}">
+				<a href="campingInsert.camping?campno=${camp.campingNo}"class="insertButton">등 록</a>
+			</c:if>
 		</div>
 			<table class="cl" align="center">
 				<c:if test="${campList.size()/3 <1}">

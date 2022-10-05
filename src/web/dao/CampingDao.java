@@ -101,7 +101,6 @@ public class CampingDao {
 			stmt.setString(6, camp.getImgName());
 			stmt.setString(7, camp.getCategory());
 			stmt.executeUpdate();
-			System.out.println("데이터 입력됨");
 		}catch(SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
@@ -125,7 +124,6 @@ public class CampingDao {
 			stmt.setString(6, camp.getImgName());
 			stmt.setInt(7, camp.getCampingNo());
 			stmt.executeUpdate();
-			System.out.println("데이터 입력됨");
 		}catch(SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
@@ -136,7 +134,6 @@ public class CampingDao {
 	public void deleteCamping(int campno) {
 		Connection con =null;
 		try {
-			System.out.println("삭제 시작");
 			con= dataSource.getConnection();
 			String sql = "delete from camping where camping_no =?";
 			PreparedStatement stmt = con.prepareStatement(sql);
