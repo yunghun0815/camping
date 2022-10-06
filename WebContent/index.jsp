@@ -52,7 +52,7 @@
 				<img src="images/main.png">
 			</div> -->
 	</section>
-	<%@ include file="common/footer.jsp"%>
+	<jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 </html>
 

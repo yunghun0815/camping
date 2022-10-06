@@ -34,7 +34,7 @@
 									</a>
 								</div> <br>
 								<div id="content">
-									<h2 class="campingName">
+									<h2 class="campingName" style="height: 30px; overflow: hidden">
 										${camp.name}
 									</h2><br>
 									${camp.address} <br>

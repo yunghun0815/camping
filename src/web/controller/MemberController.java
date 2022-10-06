@@ -69,11 +69,6 @@ public class MemberController extends HttpServlet {
 				//로그인 성공시 세션에 추가 후 인덱스페이지로
 				session.removeAttribute("loginCheck");
 				session.setAttribute("name", name);
-				if(id.equals("admin")) {
-					session.setAttribute("role", "admin");
-				}else {
-					session.setAttribute("role", "user");
-				}
 				session.setAttribute("id", id); // -> ${id}  == jyh 
 				view = "index.do";
 			}else { //이름이 없으면 로그인페이지로 이동

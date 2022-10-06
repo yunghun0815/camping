@@ -24,7 +24,7 @@
 			<tr>
 				<th>상세정보</th>
 				<td>
-					<textarea rows="5" cols="75" style="margin-top: 5px; margin-left: 12px;"></textarea>
+					<textarea rows="5" cols="75" style="margin-top: 5px; margin-left: 12px;" name="info">${camp.info}</textarea>
 				</td>
 			</tr>
 			<tr>
