@@ -45,7 +45,7 @@ public class WeatherService {
 			hourStr = String.valueOf(hour);
 		}
 		try {
-	        StringBuilder urlBuilder = new StringBuilder(apiUrl);
+	        StringBuilder urlBuilder = new StringBuilder(apiUrl); //http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst
 	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+serviceKey);
 	        urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode(nx, "UTF-8")); //x좌표
 	        urlBuilder.append("&" + URLEncoder.encode("ny","UTF-8") + "=" + URLEncoder.encode(ny, "UTF-8")); //y좌표
@@ -55,6 +55,7 @@ public class WeatherService {
 	        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode(hourStr+"00", "UTF-8")); /* 조회하고싶은 기준시간 */
 	        urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" + URLEncoder.encode(dataType, "UTF-8"));	/* 타입 */
 			URL url = new URL(urlBuilder.toString());
+			System.out.println(url.toString());
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("GET");
 			int responseCode = con.getResponseCode();
